@@ -98,6 +98,105 @@ main {
     color: #FF7300;
 }
 
+
+.card-graph {
+    box-sizing: border-box;
+    width: 373px;
+    height: 237px;
+    background-color: #1a1f24;
+    margin-left: 18px;
+    margin-top: 16px;
+    border-left: 5px solid #101518;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.card-grap-header-title-container {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-graph-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+.bold {
+    font-weight: bold;
+}
+.card-graph-subtitle {
+    font-size: 28px;
+    color: white;
+}
+
+.card-grap-porcentagem-subiu {
+    font-size: 18px;
+    color: #5bad50;
+}
+
+.card-big-graph {
+    box-sizing: border-box;
+    width: 730px;
+    height: 383px;
+    background-color: #1a1f24;
+    margin-left: 18px;
+    margin-top: 16px;
+    border-left: 5px solid #101518;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.big-graph-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.big-graph-title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.big-graph-title {
+    font-size: 18px;
+    color: #a6a6a6;
+}
+.big-graph-subtitle {
+    color: white;
+    font-size: 24px;
+}
+
+.container-type-graph {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.type-graph {
+    font-size: 14px;
+    background-color: #1a1f21;
+    color: #727373;
+    padding: 6px 12px;
+}
+.type-graph.active {
+    color: white;
+    font-weight: bold;
+    background-color: #1e2227;
+}
+
+
 .div-grafcos1 {
     display: flex;
     margin-left: 60px;
