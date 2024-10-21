@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Josefin Sans", sans-serif;
+    color: #ffffff;
+}
+
+body {
+    background: linear-gradient(to bottom left, #150800, #080300, #030100, #000, #000, #000, #010000, #150800, #311300, #511F00, #702A00, #91410E, #A8541F);
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    margin-left: 25px;
+    margin-top: 25px;
+    width: 245px;
+}
+
+header p {
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+#conteiner-card-investimento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#conteiner-card-investimento img {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+}
+
+#conteiner-card-investimento .botao-investir {
+    width: 120px;
+    height: 60px;
+    background-color: #FF7504;
+    border: none;
+    border-radius: 5px;
+}
+
+#conteiner-card-investimento .botao-investir:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+#bloco-imagem-texto-menu {
+    display: flex;
+}
+
+#bloco-imagem-texto-menu {
+    display: flex;
+}
+
+section {
+    display: flex;
+    margin-top: 10%;
+    margin-left: 10%;
+}
