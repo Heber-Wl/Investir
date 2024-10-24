@@ -49,20 +49,30 @@
                 </div>
             </header>
 
-            <section class="graphs">
-                <div class="graph graph--large">
-                    <div class="graph__header">
-                        <div class="graph__title-container">
-                            <p class="graph__title">Investimentos totais</p>
-                            <p class="graph__subtitle">R$ 10,216.53</p>
+            <section class="content__information">
+                <div class="header">
+                    <button class="header__aside-handler">
+                        <img src="../assets/imageS/icons/align-justify.svg" alt="Menu Icon" class="content__user-icon">
+                    </button>
+                    <select class="header__filter" name="mock" id="mock">
+                        <option value="mock">Mock</option>
+                    </select>
+                </div>
+                <div class="graphs">
+                    <div class="graph graph--large">
+                        <div class="graph__header">
+                            <div class="graph__title-container">
+                                <p class="graph__title">Investimentos totais</p>
+                                <p class="graph__subtitle">R$ 10,216.53</p>
+                            </div>
+                            <div class="graph__time-options">
+                                <button class="graph__time-option">Dia</button>
+                                <button class="graph__time-option">Semana</button>
+                                <button class="graph__time-option graph__time-option--active">Mês</button>
+                            </div>
                         </div>
-                        <div class="graph__time-options">
-                            <button class="graph__time-option">Dia</button>
-                            <button class="graph__time-option">Semana</button>
-                            <button class="graph__time-option graph__time-option--active">Mês</button>
-                        </div>
+                        <canvas class="graph__content" height="380" id="graph1"></canvas>
                     </div>
-                    <canvas class="graph__content" height="380" id="graph1"></canvas>
                 </div>
             </section>
         </div>
