@@ -183,6 +183,13 @@ body {
     padding: 2rem;
 }
 
+.content__information {
+    padding: 1rem;
+    margin: 2rem;
+    background-color: #0000002e;
+    border-radius: 1rem;
+}
+
 @media (max-width: 1366px) {
     .sidebar__logo {
         width: 195px;
