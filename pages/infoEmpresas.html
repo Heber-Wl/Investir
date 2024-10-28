@@ -37,7 +37,6 @@
                 </div>
             </div>
         </section>
-
         <div class="content">
             <header class="content__header">
                 <div class="content__welcome">
@@ -48,14 +47,13 @@
                     </a>
                 </div>
             </header>
-
             <section class="content__information">
                 <div class="header">
                     <button class="header__aside-handler">
                         <img src="../assets/imageS/icons/align-justify.svg" alt="Menu Icon" class="content__user-icon">
                     </button>
-                    <select class="header__filter" name="mock" id="mock">
-                        <option value="mock">Mock</option>
+                    <select class="header__filter" name="tradeSelector">
+                        <option value="mock">Gráficos de Trades</option>
                     </select>
                 </div>
                 <div class="graphs">
@@ -74,15 +72,78 @@
                         <canvas class="graph__content" height="380" id="graph1"></canvas>
                     </div>
                 </div>
+                <div class="actions">
+                    <div class="actions__button_group">
+                        <button class="actions__button actions__button-buy">
+                            Comprar
+                            <img src="../assets/images/icons/move-right.svg" alt="Seta Acima" class="icon-buy">
+                        </button>
+                        <button class="actions__button actions__button-sell">
+                            Vender
+                            <img src="../assets/images/icons/move-right.svg" alt="Seta Abaixo" class="icon-sell">
+                        </button>
+                    </div>
+                    <div class="table">
+                        <h1 class="table__title">Histórico de Ações</h1>
+                        <table class="table__content">
+                            <tr>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Status</th>
+                                <th>Retorno</th>
+                            </tr>
+                            <tr>
+                                <td>Item 1</td>
+                                <td>R$ 100,00</td>
+                                <td class="table__data-profit">+2%</td>
+                                <td class="table__data-profit">R$ 15</td>
+                            </tr>
+                            <tr>
+                                <td>Item 2</td>
+                                <td>R$ 250,00</td>
+                                <td class="table__data-profit">+12%</td>
+                                <td class="table__data-profit">R$ 42</td>
+                            </tr>
+                            <tr>
+                                <td>Item 3</td>
+                                <td>R$ 75,00</td>
+                                <td class="table__data-loss">-22%</td>
+                                <td class="table__data-loss">R$ -18</td>
+                            </tr>
+                            <tr>
+                                <td>Item 4</td>
+                                <td>R$ 300,00</td>
+                                <td class="table__data-loss">-22%</td>
+                                <td class="table__data-loss">R$ -12</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </section>
         </div>
+        <aside class="toggle-aside">
+            <div class="aside__content">
+                <div class="aside-card">
+                    <img src="https://img.migalhas.com.br/gf_Base/empresas/miga/imagens/5E260E50919130EB64FF0A749224AD38EF04_br.jpg" alt="Icon" class="aside-card__img">
+                    <div class="aside-card__text">
+                        <div class="aside-card__title_group">
+                            <h2 class="aside-card__title">PETR4</h2>
+                            <p class="table__data-profit">+02%</p>
+                        </div>
+                        <p class="aside-card__desc">Petroleo Brasileiro SA Petrobras Preference Shares
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </main>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script src="../assets/scripts/chart-config.js"></script>
     <script>
+        document.querySelector('.header__aside-handler').addEventListener('click', () => {
+            document.querySelector('.toggle-aside').classList.toggle('toggle-aside--active');
+        });
         const ctx1 = document.getElementById('graph1').getContext('2d');
-
         const opt = {
             type: 'line',
             data: {
@@ -124,7 +185,6 @@
                 }
             }
         }
-
         const optBigGraph = {
             type: 'line',
             data: {
@@ -166,7 +226,6 @@
                 }
             }
         }
-
         new Chart(ctx1, optBigGraph);
     </script>
 </body>
