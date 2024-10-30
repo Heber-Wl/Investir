@@ -352,11 +352,11 @@ body {
 }
 
 .table__data-profit {
-    color: var(--color-buy);
+    color: var(--color-buy) !important;
 }
 
 .table__data-loss {
-    color: var(--color-sell);
+    color: var(--color-sell) !important;
 }
 
 .toggle-aside {
