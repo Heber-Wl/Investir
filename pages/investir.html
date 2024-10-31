@@ -28,13 +28,13 @@
                         <img src="../assets/images/icons/chart-line.svg" alt="Mercado" class="menu-item__icon">
                         <span class="menu-item__label">Mercado</span>
                     </a>
-                    <a href="#" class="menu-item">
+                    <a href="infoEmpresas.html" class="menu-item">
                         <img src="../assets/images/icons/arrow-left-right.svg" alt="Transações" class="menu-item__icon">
                         <span class="menu-item__label">Transações</span>
                     </a>
                     <a href="#" class="menu-item">
                         <img src="../assets/images/icons/user.svg" alt="Opções" class="menu-item__icon">
-                        <span class="menu-item__label">Opções</span>
+                        <span class="menu-item__label">Investir</span>
                     </a>
                 </div>
             </div>
@@ -45,13 +45,13 @@
                     <img src="../assets/images/transacoes/logo-itau.svg" alt="" class="img-empresa">
                     <div class="dados-empresa">
                         <h1 class="nome-empresa"> PETROBRÁS N1</h1>
-                        <div>
+                        <div class="div-select">
                             <select name="empresas" id="selecionar-empresa" class="select-empresa">
-                                <option value="1">PETROBRÁS</option>
-                                <option value="1">PETROBRÁS</option>
-                                <option value="1">PETROBRÁS</option>
-                                <option value="1">PETROBRÁS</option>
-                                <option value="1">PETROBRÁS</option>
+                                <option value="1" class="select-option">PETROBRÁS</option>
+                                <option value="1" class="select-option">PETROBRÁS</option>
+                                <option value="1" class="select-option">PETROBRÁS</option>
+                                <option value="1" class="select-option">PETROBRÁS</option>
+                                <option value="1" class="select-option">PETROBRÁS</option>
                             </select>
                         </div>
                         <h1 class="valor-acao">36,15</h1>
@@ -60,28 +60,27 @@
                 </div>
                 <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
                 <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
+                    <div class="modal-dialog modal-dialog-centered " role="document">
+                        <div class="modal-content modal-style">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="modalTitulo">Investir em PETROBRÁS</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <h5 class="modal-title" id="modalTitulo">Investir em Petrobrás</h5>
+                                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
-                                </button>
+                                </button> -->
                             </div>
                             <div class="modal-body">
-                                <p>Confirme os detalhes do seu investimento aqui.</p>
-                                <div class="input-modal">
+                                <div class="input-modal investimento">
                                     <label for="">Quanto deseja investir:</label>
-                                    <input type="number" placeholder="Digite quanto deseja investir" name="investimento">
+                                    <input type="number" placeholder="Digite..." name="investimento">
                                 </div>
-                                <div class="input-modal">
+                                <div class="input-modal tempo">
                                     <label for="">Quanto tempo deseja investir:</label>
-                                    <input type="number" placeholder="Digite quanto tempo deseja investir" name="tempo">
+                                    <input type="number" placeholder="Digite..." name="tempo">
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-primary">Confirmar Investimento</button>
+                                <button type="button" class="btn btn-primary">Confirmar</button>
                             </div>
                         </div>
                     </div>

@@ -111,19 +111,34 @@ body {
 .nome-empresa, .valor-acao {
     padding: 18px 0 18px 0;
     font-weight: bold;
-    font-size: 50px;
-    color: #a6a6a6;
+    font-size: 35px;
+    color: #fff;
 }
 
 .dados-empresa {
     padding-left: 35px;
 }
+
+.div-select {
+    min-height: 50px;
+    height: auto;
+    min-width: 100px;
+    width: auto;
+}
+
 .select-empresa {
+    width: 60%;
+    min-height: 45px;
     background-color: transparent;
-    border: solid 2px #a6a6a6;
-    color: #a6a6a6;
-    font-size: 25px;
+    border: solid 0.2px #a6a6a6;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
     font-weight: 700;
+}
+
+.select-option {
+    background-color: #000;
 }
 .info-empresa {
     display: flex;
@@ -132,8 +147,8 @@ body {
 
 .btn-investir.btn-primary {
     text-align: center;
-    background-color: #000 !important;
-    color: #91410E !important;
+    background-color: #fff !important;
+    color: #000 !important;
     font-weight: bold;
     font-size: 17px;
     height: 50px;
@@ -147,7 +162,7 @@ body {
 .btn-investir.btn-primary:hover {
     transform: scale(1.1);
     background-color: #150800 !important;
-    color: #91410E !important;
+    color: #fff !important;
 }
 
 .grafico-empresa {
@@ -163,14 +178,35 @@ body {
     flex-direction: column;
 }
 
+.input-modal label {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
 .input-modal input {
-    background-color: transparent;
-    color: #cecbcb !important;
+    background-color: #D9D9D9;
+    color: #fff !important;
+    height: 45px;
+    width: 450px;
+    border-radius: 12px;
+    padding-left: 25px;
 }
 
 .btn.btn-primary {
-    background-color: #A8541F !important;
-    border: solid 1px #A8541F;
+    height: 45px !important;
+    width: 150px !important;
+    background-color: #034107 !important;
+    border: solid 1px #034107;
+    border-radius: 15px;
+}
+
+.btn.btn-secondary {
+    height: 45px !important;
+    width: 150px !important;
+    background-color: #550404 !important;
+    border: solid 1px #550404;
+    border-radius: 15px;
 }
 
 .btn.btn-primary:hover {
@@ -178,12 +214,55 @@ body {
 }
 
 .modal-footer {
-    justify-content: space-between !important;
+    justify-content: space-around !important;
+}
+
+.modal-style {
+    height: 530px !important;
+    width: 800px !important;
 }
 
 .modal-content {
-    background-color: #080300 !important;
-    color: #A8541F;
+    
+    background-color: #171717 !important;
+    color: #fff;
+}
+
+.input-modal.investimento {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.input-modal.tempo {
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.modal-header {
+    border-bottom: none !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.modal-footer {
+    border-top: none !important;
+}
+
+.modal-title {
+
+    font-size: 40px;
+}
+
+.modal-body {
+    padding:  0 !important;
+}
+
+.modal-dialog {
+    padding-left: 350px !important;
+    max-width: 1000px !important;
 }
 
 @media (max-width: 1366px) {
