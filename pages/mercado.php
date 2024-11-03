@@ -25,7 +25,7 @@
                         <img src="../assets/images/icons/panels-top-left.svg" alt="Painel" class="menu-item__icon">
                         <span class="menu-item__label">Painel</span>
                     </a>
-                    <a href="#" class="menu-item">
+                    <a href="mercado.php" class="menu-item">
                         <img src="../assets/images/icons/chart-line.svg" alt="Mercado" class="menu-item__icon">
                         <span class="menu-item__label">Mercado</span>
                     </a>
@@ -48,20 +48,48 @@
                         <tr>
                             <th>#</th>
                             <th>Nome</th>
-                            <th>Acões</th>
-                            <th>Preço</th>
-                            <th>Status</th>
+                            <th>Valor</th>
+                            <th>Preço da Ação</th>
+                            <th>Ações</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Petrobras</td>
-                            <td>15,777,777,778</td>
-                            <td>36,00</td>
-                            <td>7</td>
-                        </tr>
+
+                        <?php
+                        $dbHost = 'Localhost';
+                        $dbUsername = 'root';
+                        $dbPassword = '';
+                        $dbName = 'dados_cadastro';
+
+                        $conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+
+                        
+                        if ($conexao->connect_errno) {
+                            echo "<tr><td colspan='5'>Erro ao conectar ao banco de dados</td></tr>";
+                        } else {
+                            
+                            $sql = "SELECT id, nome_empresa, qtd_acoes, preco_acao, valor_mercado FROM empresas";
+                            $result = $conexao->query($sql);
+
+                            if ($result->num_rows > 0) {
+
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['id'] . "</td>";
+                                    echo "<td>" . $row['nome_empresa'] . "</td>";
+                                    echo "<td>" . number_format($row['qtd_acoes'], 0, ',', '.') . "</td>";
+                                    echo "<td>" . number_format($row['preco_acao'], 2, ',', '.') . "</td>";
+                                    echo "<td>" . number_format($row['valor_mercado'], 0, '.', '.') . "</td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='5'>Nenhum dado encontrado</td></tr>";
+                            }
+
+                            $conexao->close();
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
