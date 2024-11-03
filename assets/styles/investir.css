@@ -124,6 +124,8 @@ body {
     height: auto;
     min-width: 100px;
     width: auto;
+    padding-left: 35% !important;
+    padding-top: 40% !important;
 }
 
 .select-empresa {
@@ -264,6 +266,13 @@ body {
     padding-left: 350px !important;
     max-width: 1000px !important;
 }
+
+.img-grafico {
+    padding-top: 100px;
+    width: 1500px;
+}
+
+
 
 @media (max-width: 1366px) {
     .sidebar__logo {

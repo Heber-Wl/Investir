@@ -39,60 +39,476 @@
                 </div>
             </div>
         </section>
-        <div class="content conteudo">
-            <div class="content-home">
-                <div class="info-empresa">
-                    <img src="../assets/images/transacoes/logo-itau.svg" alt="" class="img-empresa">
-                    <div class="dados-empresa">
-                        <h1 class="nome-empresa"> PETROBRÁS N1</h1>
-                        <div class="div-select">
-                            <select name="empresas" id="selecionar-empresa" class="select-empresa">
-                                <option value="1" class="select-option">PETROBRÁS</option>
-                                <option value="1" class="select-option">PETROBRÁS</option>
-                                <option value="1" class="select-option">PETROBRÁS</option>
-                                <option value="1" class="select-option">PETROBRÁS</option>
-                                <option value="1" class="select-option">PETROBRÁS</option>
-                            </select>
+        
+        <div>
+            <div class="div-select">
+                <select name="empresas" id="selecionar-empresa" class="select-empresa">
+                    <option value="" disabled selected>Empresas</option>
+                    <option value="1" class="select-option">Petrobrás</option>
+                    <option value="2" class="select-option">Itaú Unibanco</option>
+                    <option value="3" class="select-option">Vale</option>
+                    <option value="4" class="select-option">Amber</option>
+                    <option value="5" class="select-option">BTG</option>
+                    <option value="6" class="select-option">Banco do Brasil</option>
+                    <option value="7" class="select-option">WEG</option>
+                    <option value="8" class="select-option">Bradesco</option>
+                    <option value="9" class="select-option">Santander</option>
+                    <option value="10" class="select-option">Itaúsa</option>
+                </select>
+            </div>
+            <div class="content conteudo" id="empresa-1">
+                <div class="content-home">
+                    <div class="info-empresa">
+                        <img src="../assets/images/logos/logo-petrobras.png" alt="" class="img-empresa">
+                        <div class="dados-empresa">
+                            <h1 class="nome-empresa"> PETROBRÁS N1</h1>
+                            <!-- quero que o select fique aqui -->
+                            <h1 class="valor-acao">36,15</h1>
                         </div>
-                        <h1 class="valor-acao">36,15</h1>
+    
                     </div>
-
+                    <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
+                    <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered " role="document">
+                            <div class="modal-content modal-style">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> -->
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-modal investimento">
+                                        <label for="">Quanto deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="investimento">
+                                    </div>
+                                    <div class="input-modal tempo">
+                                        <label for="">Quanto tempo deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="tempo">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
                 </div>
-                <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
-                <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered " role="document">
-                        <div class="modal-content modal-style">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalTitulo">Investir em Petrobrás</h5>
-                                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button> -->
-                            </div>
-                            <div class="modal-body">
-                                <div class="input-modal investimento">
-                                    <label for="">Quanto deseja investir:</label>
-                                    <input type="number" placeholder="Digite..." name="investimento">
+                <div class="grafico-empresa">
+                    <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                </div>
+            </div>
+            <div class="content conteudo" id="empresa-2" style="display: none;">
+                <div class="content-home">
+                    <div class="info-empresa">
+                        <img src="../assets/images/logos/logo-itau.png" alt="" class="img-empresa">
+                        <div class="dados-empresa">
+                            <h1 class="nome-empresa"> ITAÚ BC</h1>
+                            
+                            <h1 class="valor-acao">50,15</h1>
+                        </div>
+    
+                    </div>
+                    <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
+                    <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered " role="document">
+                            <div class="modal-content modal-style">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitulo">Investir em Petrobrás</h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> -->
                                 </div>
-                                <div class="input-modal tempo">
-                                    <label for="">Quanto tempo deseja investir:</label>
-                                    <input type="number" placeholder="Digite..." name="tempo">
+                                <div class="modal-body">
+                                    <div class="input-modal investimento">
+                                        <label for="">Quanto deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="investimento">
+                                    </div>
+                                    <div class="input-modal tempo">
+                                        <label for="">Quanto tempo deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="tempo">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-primary">Confirmar</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Confirmar</button>
+                                </div>
                             </div>
                         </div>
+                    </div>    
+                </div>
+                <div class="grafico-empresa">
+                    <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                </div>
+            </div>
+            <div class="content conteudo" id="empresa-3" style="display: none;"> 
+                <div class="content-home">
+                    <div class="info-empresa">
+                        <img src="../assets/images/logos/logo-vale.png" alt="" class="img-empresa">
+                        <div class="dados-empresa">
+                            <h1 class="nome-empresa"> Vale </h1>
+                            
+                            <h1 class="valor-acao">16,15</h1>
+                        </div>
+    
                     </div>
-                </div>    
+                    <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
+                    <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered " role="document">
+                            <div class="modal-content modal-style">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> -->
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-modal investimento">
+                                        <label for="">Quanto deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="investimento">
+                                    </div>
+                                    <div class="input-modal tempo">
+                                        <label for="">Quanto tempo deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="tempo">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="grafico-empresa">
+                    <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                </div>
             </div>
-            <div class="grafico-empresa">
-                <h2>Gráfico</h2>
+            <div class="content conteudo" id="empresa-4" style="display: none;">
+                <div class="content-home">
+                    <div class="info-empresa">
+                        <img src="../assets/images/logos/logo-ambev.png" alt="" class="img-empresa">
+                        <div class="dados-empresa">
+                            <h1 class="nome-empresa"> Ambev </h1>
+                            
+                            <h1 class="valor-acao">16,15</h1>
+                        </div>
+    
+                    </div>
+                    <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
+                    <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered " role="document">
+                            <div class="modal-content modal-style">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> -->
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-modal investimento">
+                                        <label for="">Quanto deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="investimento">
+                                    </div>
+                                    <div class="input-modal tempo">
+                                        <label for="">Quanto tempo deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="tempo">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="grafico-empresa">
+                    <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                </div>
             </div>
+            <div class="content conteudo" id="empresa-5" style="display: none;">
+                <div class="content-home">
+                    <div class="info-empresa">
+                        <img src="../assets/images/logos/logo-btg.jfif" alt="" class="img-empresa">
+                        <div class="dados-empresa">
+                            <h1 class="nome-empresa"> BTG </h1>
+                            
+                            <h1 class="valor-acao">16,15</h1>
+                        </div>
+    
+                    </div>
+                    <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
+                    <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered " role="document">
+                            <div class="modal-content modal-style">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> -->
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-modal investimento">
+                                        <label for="">Quanto deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="investimento">
+                                    </div>
+                                    <div class="input-modal tempo">
+                                        <label for="">Quanto tempo deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="tempo">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="grafico-empresa">
+                    <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                </div>
+            </div>
+            <div class="content conteudo" id="empresa-6" style="display: none;">
+                <div class="content-home">
+                    <div class="info-empresa">
+                        <img src="../assets/images/logos/logo-b.brasil.jpg" alt="" class="img-empresa">
+                        <div class="dados-empresa">
+                            <h1 class="nome-empresa"> Banco do Brasil N1</h1>
+                           
+                            <h1 class="valor-acao">36,15</h1>
+                        </div>
+    
+                    </div>
+                    <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
+                    <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered " role="document">
+                            <div class="modal-content modal-style">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> -->
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-modal investimento">
+                                        <label for="">Quanto deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="investimento">
+                                    </div>
+                                    <div class="input-modal tempo">
+                                        <label for="">Quanto tempo deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="tempo">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="grafico-empresa">
+                    <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                </div>
+            </div>
+            <div class="content conteudo" id="empresa-7" style="display: none;">
+                <div class="content-home">
+                    <div class="info-empresa">
+                        <img src="../assets/images/logos/logo-weg.png" alt="" class="img-empresa">
+                        <div class="dados-empresa">
+                            <h1 class="nome-empresa"> WEG N1</h1>
+                           
+                            <h1 class="valor-acao">36,15</h1>
+                        </div>
+    
+                    </div>
+                    <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
+                    <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered " role="document">
+                            <div class="modal-content modal-style">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> -->
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-modal investimento">
+                                        <label for="">Quanto deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="investimento">
+                                    </div>
+                                    <div class="input-modal tempo">
+                                        <label for="">Quanto tempo deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="tempo">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="grafico-empresa">
+                    <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                </div>
+            </div>
+            <div class="content conteudo" id="empresa-8" style="display: none;">
+                <div class="content-home">
+                    <div class="info-empresa">
+                        <img src="../assets/images/logos/logo-bradesco.png" alt="" class="img-empresa">
+                        <div class="dados-empresa">
+                            <h1 class="nome-empresa"> Bradesco N1</h1>
+                           
+                            <h1 class="valor-acao">36,15</h1>
+                        </div>
+    
+                    </div>
+                    <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
+                    <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered " role="document">
+                            <div class="modal-content modal-style">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> -->
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-modal investimento">
+                                        <label for="">Quanto deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="investimento">
+                                    </div>
+                                    <div class="input-modal tempo">
+                                        <label for="">Quanto tempo deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="tempo">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="grafico-empresa">
+                    <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                </div>
+            </div>
+            <div class="content conteudo" id="empresa-9" style="display: none;">
+                <div class="content-home">
+                    <div class="info-empresa">
+                        <img src="../assets/images/logos/logo-santander.jpg" alt="" class="img-empresa">
+                        <div class="dados-empresa">
+                            <h1 class="nome-empresa"> Santander N1</h1>
+                           
+                            <h1 class="valor-acao">36,15</h1>
+                        </div>
+    
+                    </div>
+                    <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
+                    <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered " role="document">
+                            <div class="modal-content modal-style">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> -->
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-modal investimento">
+                                        <label for="">Quanto deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="investimento">
+                                    </div>
+                                    <div class="input-modal tempo">
+                                        <label for="">Quanto tempo deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="tempo">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="grafico-empresa">
+                    <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                </div>
+            </div>
+            <div class="content conteudo" id="empresa-10" style="display: none;">
+                <div class="content-home">
+                    <div class="info-empresa">
+                        <img src="../assets/images/logos/logo-itausa.png" alt="" class="img-empresa">
+                        <div class="dados-empresa">
+                            <h1 class="nome-empresa"> Itaúsa N1</h1>
+                           
+                            <h1 class="valor-acao">36,15</h1>
+                        </div>
+    
+                    </div>
+                    <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal">INVESTIR</button>
+                    <div class="modal fade" id="investirModal" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered " role="document">
+                            <div class="modal-content modal-style">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> -->
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-modal investimento">
+                                        <label for="">Quanto deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="investimento">
+                                    </div>
+                                    <div class="input-modal tempo">
+                                        <label for="">Quanto tempo deseja investir:</label>
+                                        <input type="number" placeholder="Digite..." name="tempo">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="grafico-empresa">
+                    <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                </div>
+            </div>
+
         </div>
     </main>
 
 </body>
+
+<script>
+    document.getElementById('selecionar-empresa').addEventListener('change', function() {
+        // Oculta todas as seções de empresa
+        document.querySelectorAll('.content.conteudo').forEach(function(section) {
+            section.style.display = 'none';
+        });
+
+        // Mostra a seção correspondente à empresa selecionada
+        const selectedValue = this.value;
+        if (selectedValue) {
+            const selectedSection = document.getElementById(`empresa-${selectedValue}`);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+        }
+    });
+</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
