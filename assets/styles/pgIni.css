@@ -5,6 +5,37 @@
     margin: 0;
 }
 
+:root {
+    --font-family: "Josefin Sans", sans-serif;
+    --color-transparent: #00000000;
+    --color-body-bg: #000;
+    --color-text: white;
+    --color-detail: #FF7300;
+    --color-buy: #65a30d;
+    --color-sell: #dc2626;
+    --color-content-bg: linear-gradient(to bottom left, #A8541F, #91410E, #702A00, #511F00, #311300, #150800, #080300, #030100, #000, #000, #000, #010000, #150800, #311300, #511F00, #702A00, #91410E, #A8541F);
+    --color-graph-bg: #1a1f24;
+    --color-graph-border: #101518;
+    --color-graph-title: #a6a6a6;
+    --color-graph-time: #1a1f21;
+    --color-graph-time-hover: #1e2227;
+    --color-graph-time-active-bg: #1e2227;
+    --color-overlay-bg: #00000043;
+    --color-aside-bg: #000000a2;
+    --transition-duration: 0.3s;
+    --transition-duration-hover: 0.5s;
+    --border-radius: 8px;
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+    --spacing-xlarge: 2.5rem;
+    --font-size-small: 14px;
+    --font-size-medium: 16px;
+    --font-size-large: 18px;
+    --font-size-xlarge: 24px;
+    --font-size-xxlarge: 25px;
+}
+
 
 body {
     background-color: #000;
@@ -98,6 +129,29 @@ main {
     color: #FF7300;
 }
 
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-medium);
+    margin-top: 19px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: background-color var(--transition-duration);
+}
+
+.menu-item__icon {
+    height: var(--font-size-xxlarge);
+    margin-right: var(--spacing-medium);
+}
+
+.menu-item__label {
+    font-size: var(--font-size-medium);
+}
+
+.menu-item:hover {
+    background-color: var(--color-detail);
+}
 
 .card-graph {
     box-sizing: border-box;

@@ -1,71 +1,285 @@
+:root {
+    --font-family: "Josefin Sans", sans-serif;
+    --color-transparent: #00000000;
+    --color-body-bg: #000;
+    --color-text: white;
+    --color-detail: #FF7300;
+    --color-buy: #65a30d;
+    --color-sell: #dc2626;
+    --color-content-bg: linear-gradient(to bottom left, #A8541F, #91410E, #702A00, #511F00, #311300, #150800, #080300, #030100, #000, #000, #000, #010000, #150800, #311300, #511F00, #702A00, #91410E, #A8541F);
+    --color-graph-bg: #1a1f24;
+    --color-graph-border: #101518;
+    --color-graph-title: #a6a6a6;
+    --color-graph-time: #1a1f21;
+    --color-graph-time-hover: #1e2227;
+    --color-graph-time-active-bg: #1e2227;
+    --color-overlay-bg: #00000043;
+    --color-aside-bg: #000000a2;
+    --transition-duration: 0.3s;
+    --transition-duration-hover: 0.5s;
+    --border-radius: 8px;
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+    --spacing-xlarge: 2.5rem;
+    --font-size-small: 14px;
+    --font-size-medium: 16px;
+    --font-size-large: 18px;
+    --font-size-xlarge: 24px;
+    --font-size-xxlarge: 25px;
+}
+
 * {
-    margin: 0;
+    font-family: var(--font-family);
     padding: 0;
-    font-family: "Josefin Sans", sans-serif;
-    color: #ffffff;
+    margin: 0;
 }
 
 body {
-    background: linear-gradient(to bottom left, #150800, #080300, #030100, #000, #000, #000, #010000, #150800, #311300, #511F00, #702A00, #91410E, #A8541F);
+    background-image: var(--color-content-bg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.main-content {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.sidebar {
+    background: var(--color-aside-bg);
+    position: fixed;
     height: 100vh;
 }
 
-header {
+.sidebar__menu {
+    margin-left: var(--spacing-large);
+}
+
+.sidebar__logo {
+    margin-top: var(--spacing-large);
+    width: 190px;
+    height: auto;
+}
+
+.menu-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-
-header img {
-    margin-left: 25px;
-    margin-top: 25px;
-    width: 245px;
-}
-
-header p {
-    margin-right: 25px;
+    padding: var(--spacing-medium);
+    margin-top: 19px;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: background-color var(--transition-duration);
 }
 
-#conteiner-card-investimento {
+.menu-item__icon {
+    height: var(--font-size-xxlarge);
+    margin-right: var(--spacing-medium);
+}
+
+.menu-item__label {
+    font-size: var(--font-size-medium);
+}
+
+.menu-item:hover {
+    background-color: var(--color-detail);
+}
+
+.content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    display: flex;
+    flex-direction: column !important;
+    padding: 120px 75px 30px 75px;
+}
+
+.content-home {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10%;
-    margin-left: 10%;
-    margin-right: 10%;
 }
 
-#conteiner-card-investimento img {
-    width: 112px;
-    height: 112px;
+.img-empresa {
+    height: 200px;
     border-radius: 50%;
+
 }
 
-#conteiner-card-investimento .botao-investir {
-    width: 120px;
-    height: 60px;
-    background-color: #FF7504;
-    border: none;
+.nome-empresa, .valor-acao {
+    padding: 30px 0 28px 0;
+    font-weight: bold;
+    font-size: 35px;
+    color: #fff;
+}
+
+.dados-empresa {
+    padding-left: 35px;
+}
+
+.div-select {
+    min-height: 50px;
+    height: auto;
+    min-width: 100px;
+    width: auto;
+    position: absolute;
+    left: 570px;
+    top: 21%;
+}
+
+.select-empresa {
+    width: 73%;
+    min-height: 45px;
+    background-color: transparent;
+    border: solid 0.2px #a6a6a6;
     border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
 }
 
-#conteiner-card-investimento .botao-investir:hover {
+.select-option {
+    background-color: #000;
+}
+.info-empresa {
+    display: flex;
+    align-items: center;
+}
+
+.btn-investir.btn-primary {
+    text-align: center;
+    background-color: #fff !important;
+    color: #000 !important;
+    font-weight: bold;
+    font-size: 17px;
+    height: 50px;
+    width: 210px;
     cursor: pointer;
+    border: none;
+    transition: transform 0.5s ease, color 0.3s ease;
+    border-radius: 10px;
+}
+
+.btn-investir.btn-primary:hover {
     transform: scale(1.1);
-    transition: 0.3s;
+    background-color: #150800 !important;
+    color: #fff !important;
 }
 
-#bloco-imagem-texto-menu {
+.grafico-empresa {
     display: flex;
+    justify-content: center;
+}
+.grafico-empresa h2{
+    color: #fff;
 }
 
-#bloco-imagem-texto-menu {
+.input-modal {
     display: flex;
+    flex-direction: column;
 }
 
-section {
+.input-modal label {
     display: flex;
-    margin-top: 10%;
-    margin-left: 10%;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.input-modal input {
+    background-color: #D9D9D9;
+    color: #fff !important;
+    height: 45px;
+    width: 450px;
+    border-radius: 12px;
+    padding-left: 25px;
+}
+
+.btn.btn-primary {
+    height: 45px !important;
+    width: 150px !important;
+    background-color: #034107 !important;
+    border: solid 1px #034107;
+    border-radius: 15px;
+}
+
+.btn.btn-secondary {
+    height: 45px !important;
+    width: 150px !important;
+    background-color: #550404 !important;
+    border: solid 1px #550404;
+    border-radius: 15px;
+}
+
+.btn.btn-primary:hover {
+    border: none !important;
+}
+
+.modal-footer {
+    justify-content: space-around !important;
+}
+
+.modal-style {
+    height: 530px !important;
+    width: 800px !important;
+}
+
+.modal-content {
+    
+    background-color: #171717 !important;
+    color: #fff;
+}
+
+.input-modal.investimento {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.input-modal.tempo {
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.modal-header {
+    border-bottom: none !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.modal-footer {
+    border-top: none !important;
+}
+
+.modal-title {
+
+    font-size: 40px;
+}
+
+.modal-body {
+    padding:  0 !important;
+}
+
+.modal-dialog {
+    padding-left: 350px !important;
+    max-width: 1000px !important;
+}
+
+.img-grafico {
+    padding-top: 100px;
+    width: 1500px;
+}
+
+
+
+@media (max-width: 1366px) {
+    .sidebar__logo {
+        width: 195px;
+    }
+    .content__user-icon {
+        height: 25px;
+    }
 }
