@@ -101,7 +101,6 @@ body {
     flex-direction: column;
     justify-content: center;
     width: 75%;
-    padding-top: 200px;
 }
 
 .tabela-mercado table thead th {
