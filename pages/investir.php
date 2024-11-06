@@ -1,14 +1,3 @@
-<?php 
-
-    if (isset($_POST['subimit'])) {
-
-        print_r($_POST['investimento']);
-        print_r(($_POST['tempo']));
-        
-    }
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -81,7 +70,7 @@
                     <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal1">INVESTIR</button>
                     <div class="modal fade" id="investirModal1" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered " role="document">
-                            <form action="investir.php" method="POST">
+                            <form action="investirEmpresa.php" method="POST">
                                 <div class="modal-content modal-style">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
@@ -123,7 +112,7 @@
                     <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal2">INVESTIR</button>
                     <div class="modal fade" id="investirModal2" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered " role="document">
-                            <form action="investir.php" method="POST">
+                            <form action="investirEmpresa.php" method="POST">
                                 <div class="modal-content modal-style">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitulo">Investir em Petrobrás</h5>
@@ -140,7 +129,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <input type="submit" class="" value="Investir" name="submit">
+                                        <input type="submit" class="btn btn-primary" value="Investir" name="submit">
                                     </div>
                                 </div>
                             </form>
@@ -165,7 +154,7 @@
                     <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal3">INVESTIR</button>
                     <div class="modal fade" id="investirModal3" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered " role="document">
-                            <form action="investir.php" method="POST">
+                            <form action="investirEmpresa.php" method="POST">
                                 <div class="modal-content modal-style">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
@@ -182,7 +171,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <input type="submit" class="" value="Investir" name="submit">
+                                        <input type="submit" class="btn btn-primary" value="Investir" name="submit">
                                     </div>
                                 </div>
                             </form>
@@ -207,7 +196,7 @@
                     <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal4">INVESTIR</button>
                     <div class="modal fade" id="investirModal4" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered " role="document">
-                            <form action="investir.php" method="POST">
+                            <form action="investirEmpresa.php" method="POST">
                                 <div class="modal-content modal-style">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
@@ -224,7 +213,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <input type="submit" class="" value="Investir" name="submit">
+                                        <input type="submit" class="btn btn-primary" value="Investir" name="submit">
                                     </div>
                                 </div>
                             </form>
@@ -249,7 +238,7 @@
                     <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal5">INVESTIR</button>
                     <div class="modal fade" id="investirModal5" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered " role="document">
-                            <form action="investir.php" method="POST">
+                            <form action="investirEmpresa.php" method="POST">
                                 <div class="modal-content modal-style">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
@@ -266,7 +255,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <input type="submit" class="" value="Investir" name="submit">
+                                        <input type="submit" class="btn btn-primary" value="Investir" name="submit">
                                     </div>
                                 </div>
                             </form>
@@ -291,7 +280,7 @@
                     <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal6">INVESTIR</button>
                     <div class="modal fade" id="investirModal6" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered " role="document">
-                            <form action="investir.php" method="POST">
+                            <form action="investirEmpresa.php" method="POST">
                                 <div class="modal-content modal-style">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
@@ -308,7 +297,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <input type="submit" class="" value="Investir" name="submit">
+                                        <input type="submit" class="btn btn-primary" value="Investir" name="submit">
                                     </div>
                                 </div>
                             </form>
@@ -333,7 +322,7 @@
                     <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal7">INVESTIR</button>
                     <div class="modal fade" id="investirModal7" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered " role="document">
-                            <form action="investir.php" method="POST">
+                            <form action="investirEmpresa.php" method="POST">
                                 <div class="modal-content modal-style">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
@@ -350,7 +339,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <input type="submit" class="" value="Investir" name="submit">
+                                        <input type="submit" class="btn btn-primary" value="Investir" name="submit">
                                     </div>
                                 </div>
                             </form>
@@ -375,7 +364,7 @@
                     <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal8">INVESTIR</button>
                     <div class="modal fade" id="investirModal8" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered " role="document">
-                            <form action="investir.php" method="POST">
+                            <form action="investirEmpresa.php" method="POST">
                                 <div class="modal-content modal-style">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
@@ -392,7 +381,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <input type="submit" class="" value="Investir" name="submit">
+                                        <input type="submit" class="btn btn-primary" value="Investir" name="submit">
                                     </div>
                                 </div>
                             </form>
@@ -417,7 +406,7 @@
                     <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal9">INVESTIR</button>
                     <div class="modal fade" id="investirModal9" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered " role="document">
-                            <form action="investir.php" method="POST">
+                            <form action="investirEmpresa.php" method="POST">
                                 <div class="modal-content modal-style">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
@@ -434,7 +423,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <input type="submit" class="" value="Investir" name="submit">
+                                        <input type="submit" class="btn btn-primary" value="Investir" name="submit">
                                     </div>
                                 </div>
                             </form>
@@ -459,7 +448,7 @@
                     <button class="btn-investir btn-primary" data-toggle="modal" data-target="#investirModal10">INVESTIR</button>
                     <div class="modal fade" id="investirModal10" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered " role="document">
-                            <form action="investir.php" method="POST">
+                            <form action="investirEmpresa.php" method="POST">
                                 <div class="modal-content modal-style">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitulo">Investir no Itaú</h5>
@@ -476,7 +465,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <input type="submit" class="" value="Investir" name="submit">
+                                        <input type="submit" class="btn btn-primary" value="Investir" name="submit">
                                     </div>
                                 </div>
                             </form>

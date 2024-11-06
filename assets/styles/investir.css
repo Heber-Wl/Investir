@@ -260,6 +260,7 @@ body {
 }
 
 .modal-body {
+    flex: 0.4 auto !important;
     padding:  0 !important;
 }
 
