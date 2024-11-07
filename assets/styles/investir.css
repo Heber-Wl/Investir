@@ -226,9 +226,10 @@ body {
 }
 
 .modal-content {
-    
     background-color: #171717 !important;
     color: #fff;
+    box-shadow: 1px 4px 4px 1px rgb(100, 96, 96) inset;
+    border-radius: 18px !important;
 }
 
 .input-modal.investimento {
@@ -265,7 +266,7 @@ body {
 }
 
 .modal-dialog {
-    padding-left: 350px !important;
+    padding-left: 290px !important;
     max-width: 1000px !important;
 }
 
