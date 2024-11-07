@@ -171,9 +171,15 @@ body {
 .grafico-empresa {
     display: flex;
     justify-content: center;
+    background-color: #1a1f24;
+    margin-top: 60px;
 }
 .grafico-empresa h2{
     color: #fff;
+}
+
+.conteudo-pag-investimento {
+    flex: 1;
 }
 
 .input-modal {
