@@ -42,6 +42,8 @@
                     9 => 36.47, 10 => 51.09, 11 => 61.45, 12 => 67.34
                 ];
 
+                $this->lucroFinal = 0;
+
                 for ($mes = 1; $mes <= $this->tempo; $mes++) {
                     $percentualJuros = $jurosPorMes[$mes] ?? 0; 
 
@@ -53,10 +55,11 @@
                         'saldo' => $this->lucroMensal
                     ];
 
-                    $this->lucroFinal += $this->jurosMensal;
+                    if ($mes == $this->tempo) {
+                        $this->lucroFinal = $this->jurosMensal;
+                        $this->valorFinal = $this->lucroMensal;
+                    }
                 }
-
-                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
 
             }
             
@@ -83,10 +86,13 @@
                         'saldo' => $this->lucroMensal
                     ];
 
-                    $this->lucroFinal += $this->jurosMensal;
+                    if ($mes == $this->tempo) {
+                        $this->lucroFinal = $this->jurosMensal;
+                        $this->valorFinal = $this->lucroMensal;
+                    }
                 }
 
-                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
+                
             }
 
             elseif ($this->opcao == '3') {
@@ -112,10 +118,13 @@
                         'saldo' => $this->lucroMensal
                     ];
 
-                    $this->lucroFinal += $this->jurosMensal;
+                    if ($mes == $this->tempo) {
+                        $this->lucroFinal = $this->jurosMensal;
+                        $this->valorFinal = $this->lucroMensal;
+                    }
                 }
 
-                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
+                
             }
 
             elseif ($this->opcao == '4') {
@@ -141,10 +150,13 @@
                         'saldo' => $this->lucroMensal
                     ];
 
-                    $this->lucroFinal += $this->jurosMensal;
+                    if ($mes == $this->tempo) {
+                        $this->lucroFinal = $this->jurosMensal;
+                        $this->valorFinal = $this->lucroMensal;
+                    }
                 }
 
-                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
+                
             }
 
             elseif ($this->opcao == '5') {
@@ -170,10 +182,13 @@
                         'saldo' => $this->lucroMensal
                     ];
 
-                    $this->lucroFinal += $this->jurosMensal;
+                    if ($mes == $this->tempo) {
+                        $this->lucroFinal = $this->jurosMensal;
+                        $this->valorFinal = $this->lucroMensal;
+                    }
                 }
 
-                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
+                
             }
 
             elseif ($this->opcao == '6') {
@@ -199,10 +214,13 @@
                         'saldo' => $this->lucroMensal
                     ];
 
-                    $this->lucroFinal += $this->jurosMensal;
+                    if ($mes == $this->tempo) {
+                        $this->lucroFinal = $this->jurosMensal;
+                        $this->valorFinal = $this->lucroMensal;
+                    }
                 }
 
-                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
+                
             }
 
             elseif ($this->opcao == '7') {
@@ -228,10 +246,13 @@
                         'saldo' => $this->lucroMensal
                     ];
 
-                    $this->lucroFinal += $this->jurosMensal;
+                    if ($mes == $this->tempo) {
+                        $this->lucroFinal = $this->jurosMensal;
+                        $this->valorFinal = $this->lucroMensal;
+                    }
                 }
 
-                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
+                
             }
 
             elseif ($this->opcao == '8') {
@@ -257,10 +278,13 @@
                         'saldo' => $this->lucroMensal
                     ];
 
-                    $this->lucroFinal += $this->jurosMensal;
+                    if ($mes == $this->tempo) {
+                        $this->lucroFinal = $this->jurosMensal;
+                        $this->valorFinal = $this->lucroMensal;
+                    }
                 }
 
-                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
+                
             }
 
             elseif ($this->opcao == '9') {
@@ -286,10 +310,13 @@
                         'saldo' => $this->lucroMensal
                     ];
 
-                    $this->lucroFinal += $this->jurosMensal;
+                    if ($mes == $this->tempo) {
+                        $this->lucroFinal = $this->jurosMensal;
+                        $this->valorFinal = $this->lucroMensal;
+                    }
                 }
 
-                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
+                
             }
 
             elseif ($this->opcao == '10') {
@@ -315,10 +342,13 @@
                         'saldo' => $this->lucroMensal
                     ];
 
-                    $this->lucroFinal += $this->jurosMensal;
+                    if ($mes == $this->tempo) {
+                        $this->lucroFinal = $this->jurosMensal;
+                        $this->valorFinal = $this->lucroMensal;
+                    }
                 }
 
-                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
+                
 
             } else {
                 print("Opção não foi aceita");
@@ -372,7 +402,7 @@
 
             $this->atribuicaoVariaveis();
             $this->calcularInvestimento();
-            // $this->salvarBanco();
+            $this->salvarBanco();
             $this->Mostrar();
         }
 
