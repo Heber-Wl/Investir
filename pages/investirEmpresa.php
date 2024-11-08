@@ -10,6 +10,10 @@
         public $MinhasAcoes;
         public $tempo;
         public $ValorInvestido;
+        public $lucroMensal;
+        public $jurosMensal;
+        public $lucroFinal;
+        public $valorFinal ;
         public $valoresMensais = [];
 
         public function __construct() {
@@ -37,19 +41,23 @@
                     5 => 30.83, 6 => 37.01, 7 => 36.20, 8 => 47.79,
                     9 => 36.47, 10 => 51.09, 11 => 61.45, 12 => 67.34
                 ];
-    
+
                 for ($mes = 1; $mes <= $this->tempo; $mes++) {
                     $percentualJuros = $jurosPorMes[$mes] ?? 0; 
+
                     $this->jurosMensal = (($this->ValorInvestido * $percentualJuros) / 100);
-                    $this->lucroMensal = $this->jurosMensal + $this->ValorInvestido;
+                    $this->lucroMensal = $this->ValorInvestido + $this->jurosMensal;
     
                     $this->valoresMensais[$mes] = [
                         'juros' => $this->jurosMensal,
                         'saldo' => $this->lucroMensal
                     ];
+
+                    $this->lucroFinal += $this->jurosMensal;
                 }
 
-                
+                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
+
             }
             
             elseif ($this->opcao == '2') {
@@ -74,7 +82,11 @@
                         'juros' => $this->jurosMensal,
                         'saldo' => $this->lucroMensal
                     ];
+
+                    $this->lucroFinal += $this->jurosMensal;
                 }
+
+                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
             }
 
             elseif ($this->opcao == '3') {
@@ -99,7 +111,11 @@
                         'juros' => $this->jurosMensal,
                         'saldo' => $this->lucroMensal
                     ];
+
+                    $this->lucroFinal += $this->jurosMensal;
                 }
+
+                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
             }
 
             elseif ($this->opcao == '4') {
@@ -124,7 +140,11 @@
                         'juros' => $this->jurosMensal,
                         'saldo' => $this->lucroMensal
                     ];
+
+                    $this->lucroFinal += $this->jurosMensal;
                 }
+
+                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
             }
 
             elseif ($this->opcao == '5') {
@@ -149,7 +169,11 @@
                         'juros' => $this->jurosMensal,
                         'saldo' => $this->lucroMensal
                     ];
+
+                    $this->lucroFinal += $this->jurosMensal;
                 }
+
+                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
             }
 
             elseif ($this->opcao == '6') {
@@ -174,7 +198,11 @@
                         'juros' => $this->jurosMensal,
                         'saldo' => $this->lucroMensal
                     ];
+
+                    $this->lucroFinal += $this->jurosMensal;
                 }
+
+                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
             }
 
             elseif ($this->opcao == '7') {
@@ -199,7 +227,11 @@
                         'juros' => $this->jurosMensal,
                         'saldo' => $this->lucroMensal
                     ];
+
+                    $this->lucroFinal += $this->jurosMensal;
                 }
+
+                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
             }
 
             elseif ($this->opcao == '8') {
@@ -224,7 +256,11 @@
                         'juros' => $this->jurosMensal,
                         'saldo' => $this->lucroMensal
                     ];
+
+                    $this->lucroFinal += $this->jurosMensal;
                 }
+
+                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
             }
 
             elseif ($this->opcao == '9') {
@@ -249,7 +285,11 @@
                         'juros' => $this->jurosMensal,
                         'saldo' => $this->lucroMensal
                     ];
+
+                    $this->lucroFinal += $this->jurosMensal;
                 }
+
+                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
             }
 
             elseif ($this->opcao == '10') {
@@ -274,7 +314,12 @@
                         'juros' => $this->jurosMensal,
                         'saldo' => $this->lucroMensal
                     ];
+
+                    $this->lucroFinal += $this->jurosMensal;
                 }
+
+                $this->valorFinal  = $this->ValorInvestido + $this->lucroFinal;
+
             } else {
                 print("Opção não foi aceita");
             }
@@ -288,8 +333,38 @@
             foreach ($this->valoresMensais as $mes => $dados) {
                 print("Mês {$mes}: Juros = {$dados['juros']}, Saldo = {$dados['saldo']}<br>");
             }
-    
-            print("Total de meses investidos: {$this->tempo}.");
+            print("Lucro de : {$this->lucroFinal }.<br>");
+            print("Total de : {$this->valorFinal  }.<br>");
+            print("Total de meses investidos: {$this->tempo}.<br>");
+            print("Comprei {$this->MinhasAcoes} ações");
+        }
+
+        public function salvarBanco() {
+
+            include_once('config.php');
+
+            session_start();
+
+            if (isset($_SESSION['email'])) {
+                $email = $_SESSION['email'];
+
+                $slq = "SELECT id FROM dados WHERE email = '$email'";
+                $result = mysqli_query($conexao, $slq);
+
+                if ($result && mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    $id_user = $row['id'];
+                } else {
+                    die("Erro: Usuário não encontrado.");
+                }
+
+            }
+
+            $result = mysqli_query($conexao, "INSERT INTO dados_investimento(lucro,meu_investimento, minhas_acoes, tempo, id_user, id_empresa, valor_final) VALUES ('$this->lucroFinal','$this->ValorInvestido','$this->MinhasAcoes','$this->tempo', $id_user, '$this->opcao', '$this->valorFinal')");
+
+            if (!$result) {
+                die("Erro ao salvar no banco: " . mysqli_error($conexao));
+            }
         }
         
 
@@ -297,6 +372,7 @@
 
             $this->atribuicaoVariaveis();
             $this->calcularInvestimento();
+            // $this->salvarBanco();
             $this->Mostrar();
         }
 
