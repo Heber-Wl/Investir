@@ -13,7 +13,8 @@
         public $lucroMensal;
         public $jurosMensal;
         public $lucroFinal;
-        public $valorFinal ;
+        public $valorFinal;
+        public $id_investimento;
         public $valoresMensais = [];
 
         public function __construct() {
@@ -387,16 +388,32 @@
                 } else {
                     die("Erro: Usuário não encontrado.");
                 }
-
             }
 
             $result = mysqli_query($conexao, "INSERT INTO dados_investimento(lucro,meu_investimento, minhas_acoes, tempo, id_user, id_empresa, valor_final) VALUES ('$this->lucroFinal','$this->ValorInvestido','$this->MinhasAcoes','$this->tempo', $id_user, '$this->opcao', '$this->valorFinal')");
 
             if (!$result) {
                 die("Erro ao salvar no banco: " . mysqli_error($conexao));
+
             }
+
+            $id_investimento = mysqli_insert_id($conexao);
+
+            $meses = [];
+            for ($mes = 1; $mes <= 12; $mes++) {
+                $meses[] = isset($this->valoresMensais[$mes]) ? $this->valoresMensais[$mes]['juros'] : 0;
+            }
+
+            $query2 = "INSERT INTO lucro_empresa(id_empresa, id_investimento, valor_investido, mes_1, mes_2, mes_3, mes_4, mes_5, mes_6, mes_7, mes_8, mes_9, mes_10, mes_11, mes_12) 
+                    VALUES ('$this->opcao', '$id_investimento', '$this->ValorInvestido', {$meses[0]}, {$meses[1]}, {$meses[2]}, {$meses[3]}, {$meses[4]}, {$meses[5]}, {$meses[6]}, {$meses[7]}, {$meses[8]}, {$meses[9]}, {$meses[10]}, {$meses[11]})";
+
+            $result2 = mysqli_query($conexao, $query2);
+
+            if (!$result2) {
+                die("Erro ao salvar lucros mensais no banco: " . mysqli_error($conexao));
+            }
+
         }
-        
 
         public function ordem() {
 
