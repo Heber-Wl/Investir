@@ -25,7 +25,7 @@
         else {
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
-            header('Location: pgInicial.html');
+            header('Location: pgInicial.php');
         }
 
     }else {

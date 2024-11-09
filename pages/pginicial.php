@@ -1,3 +1,18 @@
+<?php 
+
+    session_start();
+
+    print_r($_SESSION);
+    if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
+
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header('Location: login.php');
+    }
+    $logado = $_SESSION['email'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,7 +32,7 @@
             <div class="barra1">
                 <a href="index.html"><img src="../assets/images/paginaInicial/gateOption.png" alt="" class="logo"></a>
                 <div class="barra-esquerda">
-                    <a href="pginicial.html" class="menu-item">
+                    <a href="pginicial.php" class="menu-item">
                         <img src="../assets/images/icons/panels-top-left.svg" alt="Painel" class="menu-item__icon">
                         <span class="menu-item__label">Painel</span>
                     </a>
@@ -25,7 +40,7 @@
                         <img src="../assets/images/icons/chart-line.svg" alt="Mercado" class="menu-item__icon">
                         <span class="menu-item__label">Mercado</span>
                     </a>
-                    <a href="infoEmpresas.html" class="menu-item">
+                    <a href="infoEmpresas.php" class="menu-item">
                         <img src="../assets/images/icons/arrow-left-right.svg" alt="Transações" class="menu-item__icon">
                         <span class="menu-item__label">Transações</span>
                     </a>

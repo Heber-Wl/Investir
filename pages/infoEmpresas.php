@@ -1,3 +1,18 @@
+<?php 
+
+    session_start();
+
+    print_r($_SESSION);
+    if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
+
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header('Location: login.php');
+    }
+    $logado = $_SESSION['email'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,11 +29,11 @@
     <main class="main-content">
         <section class="sidebar">
             <div class="sidebar__menu">
-                <a href="pginicial.html">
+                <a href="pginicial.php">
                     <img src="../assets/images/paginaInicial/gateOption.png" alt="Logo Gate Option" class="sidebar__logo">
                 </a>
                 <div class="sidebar__menu-items">
-                    <a href="pginicial.html" class="menu-item">
+                    <a href="pginicial.php" class="menu-item">
                         <img src="../assets/images/icons/panels-top-left.svg" alt="Painel" class="menu-item__icon">
                         <span class="menu-item__label">Painel</span>
                     </a>
@@ -26,7 +41,7 @@
                         <img src="../assets/images/icons/chart-line.svg" alt="Mercado" class="menu-item__icon">
                         <span class="menu-item__label">Mercado</span>
                     </a>
-                    <a href="infoEmpresas.html" class="menu-item">
+                    <a href="infoEmpresas.php" class="menu-item">
                         <img src="../assets/images/icons/arrow-left-right.svg" alt="Transações" class="menu-item__icon">
                         <span class="menu-item__label">Transações</span>
                     </a>
@@ -41,7 +56,7 @@
             <header class="content__header">
                 <div class="content__welcome">
                     <h4 class="content__welcome-text">Bem vindo novamente!</h4>
-                    <a href="login.html" class="content__user-info">
+                    <a href="login.php" class="content__user-info">
                         <span class="content__user-label">User</span>
                         <img src="../assets/imageS/icons/user.svg" alt="User Profile" class="content__user-icon">
                     </a>
