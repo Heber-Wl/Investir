@@ -1,5 +1,5 @@
 <?php 
-
+    session_start();
     
     if (isset($_POST['submit'])){
         
@@ -11,6 +11,10 @@
         $dataNas = $_POST['dataNas'];
 
         $result = mysqli_query($conexao, "INSERT INTO dados(nome,email,senha,data_nas) VALUES ('$nome', '$email', '$senha', '$dataNas')");
+
+        if ($result) {
+            $_SESSION['mensagem'] = "Cadastro feito com sucesso!";
+        }
 
         header('Location: login.php');
         exit();
@@ -57,9 +61,6 @@
                     <div class="container-input">
                         <label class="nome">DATA DE NASCIMENTO</label>
                         <input type="date" name="dataNas" id="data" >
-                        <!-- <input type="text" placeholder="dd" maxlength="2" class="dt">
-                        <input type="text" placeholder="mm" maxlength="2" class="dt">
-                        <input type="text" placeholder="aaaa" maxlength="4" class="dt"> -->
                     </div>
                 </div>
             </div>

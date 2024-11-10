@@ -410,19 +410,10 @@
             $result2 = mysqli_query($conexao, $query2);
 
             if ($result2) {
+                $_SESSION['mensagem'] = "O Investimento foi um sucesso!";
 
-                echo "
-                    <div id='confirmationModal' style='display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 9999;'>
-                        <div style='background-color: white; padding: 20px; border-radius: 8px; max-width: 400px; margin: 20% auto; text-align: center; font-size: 20px; color: green;'>
-                            Investimento confirmado! Redirecionando para a página de informações...
-                        </div>
-                    </div>
-                    <script>
-                        setTimeout(function() {
-                            window.location.href = 'infoEmpresas.php';
-                        }, 3000); // Redireciona após 3 segundos
-                    </script>
-                ";
+                header('Location: infoEmpresas.php');
+                exit();
             } else {
                 die("Erro ao salvar lucros mensais no banco: " . mysqli_error($conexao));
             }

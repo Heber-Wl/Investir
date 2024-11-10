@@ -18,6 +18,10 @@
         //print_r($result);
 
         if(mysqli_num_rows($result) < 1){
+
+            $_SESSION['mensagem'] = "Email ou senha incorretos";
+            $_SESSION['mensagem_tipo'] = "erro";
+
             unset($_SESSION['email']);
             unset($_SESSION['senha']);
             header('Location: login.php');
@@ -29,11 +33,16 @@
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
             $_SESSION['nome'] = $nome;
+
+            $_SESSION['mensagem'] = "Login efetuado com sucesso!";
+            $_SESSION['mensagem_tipo'] = "sucesso";
+
             header('Location: pgInicial.php');
         }
 
     }else {
-
+        $_SESSION['mensagem'] = "Por favor, preencha todos os campos";
+        $_SESSION['mensagem_tipo'] = "erro";
         header('Location: login.php');
     }
 ?>
