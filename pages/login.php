@@ -2,14 +2,16 @@
 
     session_start();
 
-    if(isset($_SESSION['mensagem'])) {
+    if (isset($_SESSION['mensagem'])) {
+        $alertClass = (isset($_SESSION['mensagem_tipo']) && $_SESSION['mensagem_tipo'] === 'sucesso') ? 'alert-success' : 'alert-danger';
         echo '
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; width: 40%; max-width: 400px;">
+            <div class="alert ' . $alertClass . ' alert-dismissible fade show" role="alert" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; width: 40%; max-width: 400px;">
                 ' . $_SESSION['mensagem'] . '
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div
+            </div>
         ';
         unset($_SESSION['mensagem']);
+        unset($_SESSION['mensagem_tipo']);
     }
 ?>
 
