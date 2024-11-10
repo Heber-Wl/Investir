@@ -419,7 +419,7 @@
                     </div>
                     <script>
                         setTimeout(function() {
-                            window.location.href = 'infoEmpresas.html';
+                            window.location.href = 'infoEmpresas.php';
                         }, 3000); // Redireciona após 3 segundos
                     </script>
                 ";

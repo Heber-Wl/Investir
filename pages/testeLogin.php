@@ -23,8 +23,12 @@
             header('Location: login.php');
         }
         else {
+            $user = mysqli_fetch_assoc($result);
+            $nome = $user['nome'];
+
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
+            $_SESSION['nome'] = $nome;
             header('Location: pgInicial.php');
         }
 
