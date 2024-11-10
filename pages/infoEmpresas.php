@@ -2,7 +2,6 @@
 
     session_start();
 
-    print_r($_SESSION);
     if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
 
         unset($_SESSION['email']);
@@ -102,9 +101,9 @@
                         <h1 class="table__title">Histórico de Ações</h1>
                         <table class="table__content">
                             <tr>
-                                <th>Nome</th>
-                                <th>Preço</th>
-                                <th>Status</th>
+                                <th>Empresa</th>
+                                <th>Valor Investido</th>
+                                <th>Tempo</th>
                                 <th>Retorno</th>
                             </tr>
                             <tr>

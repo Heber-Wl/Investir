@@ -90,9 +90,11 @@ main {
 
 .imguser {
     margin: 12px;
+    font-size: 50px;
 }
 
 .linha-user {
+    padding-right: 25px;
     display: flex;
     cursor: pointer;
     align-items: center;
@@ -101,6 +103,38 @@ main {
 
 .linha-user:hover {
     transform: scale(1.1);
+}
+
+.div-btn-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-sair {
+    height: 25px;
+    width: 70px;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.sair {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-user {
+    all: unset; 
+    background: none; 
+    border: none; 
+    padding: 0; 
+    font: inherit; 
+    color: inherit; 
+    cursor: pointer; 
 }
 
 .portifolio {
@@ -417,12 +451,6 @@ main {
         display: flex;
         margin-top: 5px;
         padding: 21px;
-    }
-    
-    .imguser {
-        margin: 7px;
-        height: 25px;
-        width: auto;
     }
     
     .portifolio {
