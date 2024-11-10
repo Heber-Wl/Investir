@@ -52,7 +52,7 @@
             </div>
         </section>
         <div class="content">
-            <header class="content__header">
+            <!-- <header class="content__header">
                 <div class="content__welcome">
                     <h4 class="content__welcome-text">Bem vindo novamente!</h4>
                     <a href="login.php" class="content__user-info">
@@ -60,7 +60,7 @@
                         <img src="../assets/imageS/icons/user.svg" alt="User Profile" class="content__user-icon">
                     </a>
                 </div>
-            </header>
+            </header> -->
             <section class="content__information">
                 <div class="header">
                     <button class="header__aside-handler">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="actions">
-                    <div class="actions__button_group">
+                    <!-- <div class="actions__button_group">
                         <button class="actions__button actions__button-buy">
                             Comprar
                             <img src="../assets/images/icons/move-right.svg" alt="Seta Acima" class="icon-buy">
@@ -96,41 +96,125 @@
                             Vender
                             <img src="../assets/images/icons/move-right.svg" alt="Seta Abaixo" class="icon-sell">
                         </button>
-                    </div>
-                    <div class="table">
-                        <h1 class="table__title">Histórico de Ações</h1>
-                        <table class="table__content">
-                            <tr>
-                                <th>Empresa</th>
-                                <th>Valor Investido</th>
-                                <th>Tempo</th>
-                                <th>Retorno</th>
-                            </tr>
-                            <tr>
-                                <td>Item 1</td>
-                                <td>R$ 100,00</td>
-                                <td class="table__data-profit">+2%</td>
-                                <td class="table__data-profit">R$ 15</td>
-                            </tr>
-                            <tr>
-                                <td>Item 2</td>
-                                <td>R$ 250,00</td>
-                                <td class="table__data-profit">+12%</td>
-                                <td class="table__data-profit">R$ 42</td>
-                            </tr>
-                            <tr>
-                                <td>Item 3</td>
-                                <td>R$ 75,00</td>
-                                <td class="table__data-loss">-22%</td>
-                                <td class="table__data-loss">R$ -18</td>
-                            </tr>
-                            <tr>
-                                <td>Item 4</td>
-                                <td>R$ 300,00</td>
-                                <td class="table__data-loss">-22%</td>
-                                <td class="table__data-loss">R$ -12</td>
-                            </tr>
-                        </table>
+                    </div> -->
+                    <div class="tabela-mercado">
+                        <div class="tabela-interior">
+                            <h2>Histórico de Investimento</h1>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Empresa</th>
+                                        <th>Valor Investido</th>
+                                        <th>Tempo</th>
+                                        <th>Ações</th>
+                                        <th>Retorno</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        // $dbHost = 'Localhost';
+                                        // $dbUsername = 'root';
+                                        // $dbPassword = '';
+                                        // $dbName = 'dados_cadastro';
+                                        // $conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+                            
+                                        // if ($conexao->connect_errno) {
+                                        //     echo "<tr><td colspan='5'>Erro ao conectar ao banco de dados</td></tr>";
+                                        // } else {
+                            
+                                        //     $sql = "SELECT id_empresa, meu_investimento, minhas_acoes, tempo, valor_final FROM dados_investimento";
+                                        //     $result = $conexao->query($sql);
+                                        //     if ($result->num_rows > 0) {
+                                        //         while ($row = $result->fetch_assoc()) {
+                                        //             echo "<tr>";
+                                        //             echo "<td>" . $row['id_empresa'] . "</td>";
+                                        //             echo "<td>" . number_format($row['meu_investimento'], 0, ',', '.') . "</td>";
+                                        //             echo "<td>" . $row['minhas_acoes'] . "</td>";
+                                        //             echo "<td>" . $row['tempo'] . "</td>";
+                                        //             echo "<td>" . number_format($row['valor_final'], 0, '.', '.') . "</td>";
+                                        //             echo "</tr>";
+                                        //         }
+                                        //     } else {
+                                        //         echo "<tr><td colspan='5'>Nenhum dado encontrado</td></tr>";
+                                        //     }
+                                        //     $conexao->close();
+                                        // }
+                                        $dbHost = 'Localhost';
+                                        $dbUsername = 'root';
+                                        $dbPassword = '';
+                                        $dbName = 'dados_cadastro';
+                                        $conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+
+                                        if ($conexao->connect_errno) {
+                                            echo "<tr><td colspan='5'>Erro ao conectar ao banco de dados</td></tr>";
+                                        } else {
+                                            // Consulta SQL para filtrar investimentos com base no usuário logado
+                                            $sql = "
+                                                SELECT di.id_empresa, e.nome_empresa, di.meu_investimento, di.minhas_acoes, di.tempo, di.valor_final
+                                                FROM dados_investimento di
+                                                JOIN dados d ON di.id_user = d.id
+                                                JOIN empresas e ON di.id_empresa = e.id
+                                                WHERE d.email = ?";
+                                            // Prepara a consulta
+                                            if ($stmt = $conexao->prepare($sql)) {
+                                                // Associa o parâmetro do email
+                                                $stmt->bind_param("s", $logado);
+
+                                                // Executa a consulta
+                                                $stmt->execute();
+
+                                                // Armazena o resultado
+                                                $result = $stmt->get_result();
+
+                                                if ($result->num_rows > 0) {
+                                                    while ($row = $result->fetch_assoc()) {
+                                                        echo "<tr>";
+                                                        echo "<td>" . $row['nome_empresa'] . "</td>";
+                                                        echo "<td>" . number_format($row['meu_investimento'], 0, ',', '.') . "</td>";
+                                                        echo "<td>" . $row['tempo'] . "</td>";
+                                                        echo "<td>" . $row['minhas_acoes'] . "</td>";
+                                                        echo "<td>" . number_format($row['valor_final'], 0, '.', '.') . "</td>";
+                                                        echo "</tr>";
+                                                    }
+                                                } else {
+                                                    echo "<tr><td colspan='5'>Nenhum dado encontrado</td></tr>";
+                                                }
+
+                                                // Fecha a consulta
+                                                $stmt->close();
+                                            }
+
+                                            // Fecha a conexão com o banco de dados
+                                            $conexao->close();
+                                        }
+                                    ?>
+                                </tbody>
+                                <!-- <tr>
+                                    <td>Item 1</td>
+                                    <td>R$ 100,00</td>
+                                    <td class="table__data-profit">+2%</td>
+                                    <td class="table__data-profit">R$ 15</td>
+                                </tr>
+                                <tr>
+                                    <td>Item 2</td>
+                                    <td>R$ 250,00</td>
+                                    <td class="table__data-profit">+12%</td>
+                                    <td class="table__data-profit">R$ 42</td>
+                                </tr>
+                                <tr>
+                                    <td>Item 3</td>
+                                    <td>R$ 75,00</td>
+                                    <td class="table__data-loss">-22%</td>
+                                    <td class="table__data-loss">R$ -18</td>
+                                </tr>
+                                <tr>
+                                    <td>Item 4</td>
+                                    <td>R$ 300,00</td>
+                                    <td class="table__data-loss">-22%</td>
+                                    <td class="table__data-loss">R$ -12</td>
+                                </tr> -->
+                            </table>
+                        </div>
                     </div>
                 </div>
             </section>
