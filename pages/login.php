@@ -25,15 +25,15 @@
             <div class="boxs">
                 <div class="label">
                     <label class="nome-la">EMAIL</label>
-                    <input type="email" name="email" placeholder="Email" class="inputss">
+                    <input type="email" name="email" placeholder="Email" class="inputss" required>
                 </div>
                 <div class="label">
                     <label class="nome-la">SENHA</label>
-                    <input type="password" name="senha" placeholder="Senha" class="inputss">
+                    <input type="password" name="senha" placeholder="Senha" class="inputss" required>
                 </div>
             </div>
             
-            <a href="" ><input type="submit" value="Entrar" class="but-login" name="submit"></a>
+            <a href="" ><input type="submit" value="Entrar" class="but-login" name="submit" required></a>
         </form>
     </main>
 </body>

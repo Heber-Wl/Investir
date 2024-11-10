@@ -43,20 +43,20 @@
             <div class="inputs">
                 <div class="container-input">
                     <label class="nome">NOME</label>
-                    <input type="text" placeholder="Nome" class="inputs1" name="nome">
+                    <input type="text" placeholder="Nome" class="inputs1" name="nome" required>
                 </div>
                 <div  class="container-input">
                     <label class="nome">EMAIL</label>
-                    <input type="email" placeholder="Email" class="inputs1" name="email">
+                    <input type="email" placeholder="Email" class="inputs1" name="email" required>
                 </div>
                 <div  class="container-input">
                     <label class="nome">SENHA</label>
-                    <input type="password" placeholder="Senha" class="inputs1" name="senha">
+                    <input type="password" placeholder="Senha" class="inputs1" name="senha" required>
                 </div>
                 <div>
                     <div class="container-input">
                         <label class="nome">DATA DE NASCIMENTO</label>
-                        <input type="date" name="dataNas" id="data" >
+                        <input type="date" name="dataNas" id="data" required>
                         <!-- <input type="text" placeholder="dd" maxlength="2" class="dt">
                         <input type="text" placeholder="mm" maxlength="2" class="dt">
                         <input type="text" placeholder="aaaa" maxlength="4" class="dt"> -->
