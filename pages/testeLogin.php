@@ -29,6 +29,9 @@
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
             $_SESSION['nome'] = $nome;
+
+            $_SESSION['mensagem'] = "Login efetuado com sucesso!";
+            
             header('Location: pgInicial.php');
         }
 

@@ -41,7 +41,7 @@ body {
     background-color: #000;
     background-size: 100% 100vh;
     background-repeat: no-repeat;
-    color: white;
+    color: white !important;
 }
 main {
     height: 100vh;
