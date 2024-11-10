@@ -29,10 +29,14 @@
         else {
             $user = mysqli_fetch_assoc($result);
             $nome = $user['nome'];
+            $id = $user['id']; 
+            $deposito = $user['deposito'];
 
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
             $_SESSION['nome'] = $nome;
+            $_SESSION['id'] = $id;
+            $_SESSION['deposito'] = $deposito;
 
             $_SESSION['mensagem'] = "Login efetuado com sucesso!";
             $_SESSION['mensagem_tipo'] = "sucesso";

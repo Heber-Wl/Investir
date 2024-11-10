@@ -20,6 +20,7 @@
     }    
     $logado = $_SESSION['email'];
     $nome = $_SESSION['nome']; 
+    $deposito = $_SESSION['deposito'];
 
 ?>
 
@@ -83,9 +84,32 @@
                 </div>
                 <div class="portifolio">
                     <h3 class="port">Potfólio de ações</h3>
-                    <div class="vertudo">
-                        <h5 class="tudo">Ver tudo</h5>
-                        <h4 class="seta">→</h4>
+                    <button type="button" class="btn-deposito" data-bs-toggle="modal" data-bs-target="#depositModal">
+                        <div class="vertudo">
+                            <h5 class="tudo">Meu Saldo: </h5>
+                            <h4 class="seta">R$ <?php echo number_format(isset($deposito) ? $deposito : 0, 1, ',', '.'); ?></h4>
+                        </div>
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="depositModal" tabindex="-1" aria-labelledby="depositModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="depositModalLabel">Depósito</h5>
+                                </div>
+                                <div class="input-modal depositar">
+                                    <form action="deposito.php" method="POST">
+                                        <div class="mb-3 iput">
+                                            <label for="depositAmount" class="form-label">Quanto deseja depositar?</label>
+                                            <input type="number" class="form-control depositar" id="depositAmount" name="deposito" required>
+                                        </div>
+                                        <div class="div-btn-depositar">
+                                            <button type="submit" class="btn btn-primary" name="submit">Depositar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
