@@ -8,6 +8,19 @@
         unset($_SESSION['senha']);
         header('Location: login.php');
     }
+
+    if (isset($_SESSION['mensagem'])) {
+
+        $alertClass = (isset($_SESSION['mensagem_tipo']) && $_SESSION['mensagem_tipo'] === 'sucesso') ? 'alert-success' : 'alert-danger';
+        echo '
+            <div class="alert ' . $alertClass . ' alert-dismissible fade show" role="alert" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; width: 40%; max-width: 400px;">
+                ' . $_SESSION['mensagem'] . '
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        ';
+        unset($_SESSION['mensagem']);
+        unset($_SESSION['mensagem_tipo']);
+    }
     $logado = $_SESSION['email'];
 
 ?>
@@ -24,6 +37,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -102,11 +118,11 @@
                                         <div class="modal-body">
                                             <div class="input-modal investimento">
                                                 <label for="">Quanto deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="investimento">
+                                                <input type="number" placeholder="Digite..." name="investimento" required>
                                             </div>
                                             <div class="input-modal tempo">
                                                 <label for="">Quanto tempo deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="tempo">
+                                                <input type="number" placeholder="Digite..." name="tempo" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -144,11 +160,11 @@
                                         <div class="modal-body">
                                             <div class="input-modal investimento">
                                                 <label for="">Quanto deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="investimento">
+                                                <input type="number" placeholder="Digite..." name="investimento" required>
                                             </div>
                                             <div class="input-modal tempo">
                                                 <label for="">Quanto tempo deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="tempo">
+                                                <input type="number" placeholder="Digite..." name="tempo" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -186,11 +202,11 @@
                                         <div class="modal-body">
                                             <div class="input-modal investimento">
                                                 <label for="">Quanto deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="investimento">
+                                                <input type="number" placeholder="Digite..." name="investimento" required>
                                             </div>
                                             <div class="input-modal tempo">
                                                 <label for="">Quanto tempo deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="tempo">
+                                                <input type="number" placeholder="Digite..." name="tempo" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -228,11 +244,11 @@
                                         <div class="modal-body">
                                             <div class="input-modal investimento">
                                                 <label for="">Quanto deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="investimento">
+                                                <input type="number" placeholder="Digite..." name="investimento" required>
                                             </div>
                                             <div class="input-modal tempo">
                                                 <label for="">Quanto tempo deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="tempo">
+                                                <input type="number" placeholder="Digite..." name="tempo" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -270,11 +286,11 @@
                                         <div class="modal-body">
                                             <div class="input-modal investimento">
                                                 <label for="">Quanto deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="investimento">
+                                                <input type="number" placeholder="Digite..." name="investimento" required>
                                             </div>
                                             <div class="input-modal tempo">
                                                 <label for="">Quanto tempo deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="tempo">
+                                                <input type="number" placeholder="Digite..." name="tempo" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -312,11 +328,11 @@
                                         <div class="modal-body">
                                             <div class="input-modal investimento">
                                                 <label for="">Quanto deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="investimento">
+                                                <input type="number" placeholder="Digite..." name="investimento" required>
                                             </div>
                                             <div class="input-modal tempo">
                                                 <label for="">Quanto tempo deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="tempo">
+                                                <input type="number" placeholder="Digite..." name="tempo" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -354,11 +370,11 @@
                                         <div class="modal-body">
                                             <div class="input-modal investimento">
                                                 <label for="">Quanto deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="investimento">
+                                                <input type="number" placeholder="Digite..." name="investimento" required>
                                             </div>
                                             <div class="input-modal tempo">
                                                 <label for="">Quanto tempo deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="tempo">
+                                                <input type="number" placeholder="Digite..." name="tempo" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -396,11 +412,11 @@
                                         <div class="modal-body">
                                             <div class="input-modal investimento">
                                                 <label for="">Quanto deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="investimento">
+                                                <input type="number" placeholder="Digite..." name="investimento" required>
                                             </div>
                                             <div class="input-modal tempo">
                                                 <label for="">Quanto tempo deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="tempo">
+                                                <input type="number" placeholder="Digite..." name="tempo" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -438,11 +454,11 @@
                                         <div class="modal-body">
                                             <div class="input-modal investimento">
                                                 <label for="">Quanto deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="investimento">
+                                                <input type="number" placeholder="Digite..." name="investimento" required>
                                             </div>
                                             <div class="input-modal tempo">
                                                 <label for="">Quanto tempo deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="tempo">
+                                                <input type="number" placeholder="Digite..." name="tempo" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -480,11 +496,11 @@
                                         <div class="modal-body">
                                             <div class="input-modal investimento">
                                                 <label for="">Quanto deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="investimento">
+                                                <input type="number" placeholder="Digite..." name="investimento" required>
                                             </div>
                                             <div class="input-modal tempo">
                                                 <label for="">Quanto tempo deseja investir:</label>
-                                                <input type="number" placeholder="Digite..." name="tempo">
+                                                <input type="number" placeholder="Digite..." name="tempo" required>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
