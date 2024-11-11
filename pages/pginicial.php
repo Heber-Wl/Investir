@@ -68,7 +68,7 @@
         <div class="div-2">
             <div class="barra2">
                 <div class="bemvindo">
-                    <h4 class="bemv">Bem vindo novamente!</h4>
+                    <h4 class="bemv">Bem vindo !</h4>
                     <div class="div-btn-user">
                         <button type="button" class="btn-user">
                             <div class="linha-user"  onclick="toggleSair()">
@@ -177,6 +177,28 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+    <script>
+        function atualizarDeposito() {
+            fetch('consultaDeposito.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.deposito) {
+                        // Atualiza o valor do depósito na página
+                        document.querySelector('.seta').textContent = 'R$ ' + parseFloat(data.deposito).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+                    } else {
+                        console.error('Erro:', data.error);
+                    }
+                })
+                .catch(error => console.error('Erro na consulta do depósito:', error));
+        }
+
+        // Configura o intervalo para atualizar a cada 10 segundos
+        setInterval(atualizarDeposito, 10000);
+
+        // Executa a atualização ao carregar a página
+        window.onload = atualizarDeposito;
+    </script>
 
     <script>
         const ctx1 = document.getElementById('graph1').getContext('2d');
