@@ -20,6 +20,7 @@
     }    
     $logado = $_SESSION['email'];
     $nome = $_SESSION['nome']; 
+    $deposito = $_SESSION['deposito'];
 
 ?>
 
@@ -67,7 +68,7 @@
         <div class="div-2">
             <div class="barra2">
                 <div class="bemvindo">
-                    <h4 class="bemv">Bem vindo novamente!</h4>
+                    <h4 class="bemv">Bem vindo !</h4>
                     <div class="div-btn-user">
                         <button type="button" class="btn-user">
                             <div class="linha-user"  onclick="toggleSair()">
@@ -83,9 +84,32 @@
                 </div>
                 <div class="portifolio">
                     <h3 class="port">Potfólio de ações</h3>
-                    <div class="vertudo">
-                        <h5 class="tudo">Ver tudo</h5>
-                        <h4 class="seta">→</h4>
+                    <button type="button" class="btn-deposito" data-bs-toggle="modal" data-bs-target="#depositModal">
+                        <div class="vertudo">
+                            <h5 class="tudo">Meu Saldo: </h5>
+                            <h4 class="seta">R$ <?php echo number_format(isset($deposito) ? $deposito : 0, 1, ',', '.'); ?></h4>
+                        </div>
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="depositModal" tabindex="-1" aria-labelledby="depositModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="depositModalLabel">Depósito</h5>
+                                </div>
+                                <div class="input-modal depositar">
+                                    <form action="deposito.php" method="POST">
+                                        <div class="mb-3 iput">
+                                            <label for="depositAmount" class="form-label">Quanto deseja depositar?</label>
+                                            <input type="number" class="form-control depositar" id="depositAmount" name="deposito" required>
+                                        </div>
+                                        <div class="div-btn-depositar">
+                                            <button type="submit" class="btn btn-primary" name="submit">Depositar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -153,6 +177,28 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+    <script>
+        function atualizarDeposito() {
+            fetch('consultaDeposito.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.deposito) {
+                        // Atualiza o valor do depósito na página
+                        document.querySelector('.seta').textContent = 'R$ ' + parseFloat(data.deposito).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+                    } else {
+                        console.error('Erro:', data.error);
+                    }
+                })
+                .catch(error => console.error('Erro na consulta do depósito:', error));
+        }
+
+        // Configura o intervalo para atualizar a cada 10 segundos
+        setInterval(atualizarDeposito, 10000);
+
+        // Executa a atualização ao carregar a página
+        window.onload = atualizarDeposito;
+    </script>
 
     <script>
         const ctx1 = document.getElementById('graph1').getContext('2d');

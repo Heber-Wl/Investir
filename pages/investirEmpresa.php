@@ -15,6 +15,8 @@
         public $lucroFinal;
         public $valorFinal;
         public $id_investimento;
+        public $deposito;
+        public $FoiInvestido = false;
         public $valoresMensais = [];
 
         public function __construct() {
@@ -23,16 +25,70 @@
 
         public function atribuicaoVariaveis() {
 
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+
             $this->opcao = $_POST['empresas'];
             $this->ValorInvestido = $_POST['investimento'] ?? null;
             $this->tempo = $_POST['tempo'] ?? null;
         }
 
+        public function verDeposito() {
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+            if (isset($_SESSION['id'])) {
+                $user_id = $_SESSION['id'];
+        
+                include_once('config.php');
+    
+                $sql = "SELECT deposito FROM dados WHERE id = '$user_id'";
+
+                $result = mysqli_query($conexao, $sql);
+
+                if ($result && mysqli_num_rows($result) > 0) {
+                  
+                    $row = mysqli_fetch_assoc($result);
+
+                    $this->deposito = (float) $row['deposito'];
+
+                } else {
+                    session_start();
+
+                    $_SESSION['mensagem'] = "Erro! 1";
+                    $_SESSION['mensagem_tipo'] = "erro";
+                    header('Location: investir.php');
+                    exit();
+                }
+            } else {
+                session_start();
+                
+                $_SESSION['mensagem'] = "Erro! 2";
+                $_SESSION['mensagem_tipo'] = "erro";
+                header('Location: investir.php');
+                exit();
+            }
+        }
+
         public function calcularInvestimento() {
+            if ($this->deposito < $this->ValorInvestido) {
+
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
+
+                $_SESSION['mensagem'] = "Erro! Você não tem saldo suficiente para investir o valor desejado.";
+                $_SESSION['mensagem_tipo'] = "erro";
+                header('Location: investir.php');
+                exit();
+            }
 
             if ($this->tempo > 12) {
 
-                session_start();
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
 
                 $_SESSION['mensagem'] = "Erro! Limite de 12 meses para investir";
                 $_SESSION['mensagem_tipo'] = "erro";
@@ -363,8 +419,10 @@
 
                     
 
-                    } else {
-                    session_start();
+                } else {
+                    if (session_status() == PHP_SESSION_NONE) {
+                        session_start();
+                    }
 
                     $_SESSION['mensagem'] = "Erro! Empresa não selecionada";
                     $_SESSION['mensagem_tipo'] = "erro";
@@ -391,9 +449,20 @@
 
         public function salvarBanco() {
 
-            include_once('config.php');
+            $dbHost = 'Localhost';
+            $dbUsername = 'root';
+            $dbPassword = '';
+            $dbName = 'dados_cadastro';
 
-            session_start();
+            $conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+
+            if ($conexao->connect_error) {
+                die("Falha na conexão: " . $conexao->connect_error);
+            }
+
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
 
             if (isset($_SESSION['email'])) {
                 $email = $_SESSION['email'];
@@ -429,10 +498,9 @@
             $result2 = mysqli_query($conexao, $query2);
 
             if ($result2) {
-                $_SESSION['mensagem'] = "O Investimento foi um sucesso!";
-
-                header('Location: infoEmpresas.php');
-                exit();
+                $this->FoiInvestido = true;
+                $this->atualizarDeposito();
+                
             } else {
                 die("Erro ao salvar lucros mensais no banco: " . mysqli_error($conexao));
             }
@@ -440,9 +508,41 @@
 
         }
 
+        public function atualizarDeposito() {
+            if ($this->FoiInvestido == true) {
+
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
+
+                $resto = $this->deposito - $this->ValorInvestido;
+
+                $dbHost = 'Localhost';
+                $dbUsername = 'root';
+                $dbPassword = '';
+                $dbName = 'dados_cadastro';
+
+                $conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+
+                $user_id = $_SESSION['id'];
+                $deposito = $resto + $this->valorFinal;
+
+                $result = mysqli_query($conexao, "UPDATE dados SET deposito = '$deposito' WHERE id = '$user_id'");
+
+                if($result) {
+                    $_SESSION['mensagem'] = "O Investimento foi um sucesso!";
+
+                    header('Location: infoEmpresas.php');
+                    exit();
+                }
+                
+            }
+        }
+
         public function ordem() {
 
             $this->atribuicaoVariaveis();
+            $this->verDeposito();
             $this->calcularInvestimento();
             $this->salvarBanco();
             // $this->Mostrar();
