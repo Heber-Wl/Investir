@@ -386,12 +386,47 @@ main {
 
 
 .imglistaEmmpresas {
-    width: 374px;
+    background-color: #212529;
+    width: 370px;
     height: 383px;
     margin: 15px;
     margin-left: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 4px;
 }
 
+.imglistaEmmpresas h3 {
+    font-weight: 600;
+    padding-bottom: 20px;
+    padding-left: 15px;
+}
+.imglistaEmmpresas tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imglistaEmmpresas th {
+    padding: 2px 5px 2px 5px;
+}
+
+
+.imglistaEmmpresas td {
+    padding: 8px 5px 8px 5px;
+    text-transform: uppercase;
+}
+.imglistaEmmpresas thead {
+    background-color: #171a1d;
+}
+
+.positivo {
+    color: green;
+}
+
+.negativo {
+    color: red;
+}
 .logo {
     margin-top: 25px;
     width: 245px;

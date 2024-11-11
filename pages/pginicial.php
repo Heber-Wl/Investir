@@ -172,7 +172,58 @@
                     </div>
                     <canvas height="240" id="graph4"></canvas>
                 </div>
-                <img src="../assets/images/paginaInicial/empresas.png" alt="" class="imglistaEmmpresas">
+                <!-- <img src="../assets/images/paginaInicial/empresas.png" alt="" class="imglistaEmmpresas"> -->
+                <div class="imglistaEmmpresas">
+                    <h3>Gráfico Ações</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Ação</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Petrobrás</td>
+                                <td>R$ 36,00</td>
+                                <td class="positivo">1,69</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Itaú</td>
+                                <td>R$ 33,30</td>
+                                <td class="positivo">5,13</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Vale</td>
+                                <td>R$ 61,17</td>
+                                <td class="negativo">-11,3</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Ambev</td>
+                                <td>R$ 12,39</td>
+                                <td class="negativo">-0,36</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>BTG</td>
+                                <td>R$ 36,00</td>
+                                <td class="negativo">-6,60</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>B Brasil</td>
+                                <td>R$ 55,30</td>
+                                <td class="positivo">13,46</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
     </main>
 
