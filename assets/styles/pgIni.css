@@ -41,7 +41,7 @@ body {
     background-color: #000;
     background-size: 100% 100vh;
     background-repeat: no-repeat;
-    color: white;
+    color: white !important;
 }
 main {
     height: 100vh;
@@ -86,13 +86,16 @@ main {
     margin-top: 25px;
     padding: 25px;
     justify-content: space-between;
+    align-items: center;
 }
 
 .imguser {
     margin: 12px;
+    font-size: 50px;
 }
 
 .linha-user {
+    padding-right: 25px;
     display: flex;
     cursor: pointer;
     align-items: center;
@@ -101,6 +104,48 @@ main {
 
 .linha-user:hover {
     transform: scale(1.1);
+}
+
+.div-btn-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-sair {
+    height: 25px;
+    width: 70px;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.sair {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-user {
+    all: unset; 
+    background: none; 
+    border: none; 
+    padding: 0; 
+    font: inherit; 
+    color: inherit; 
+    cursor: pointer; 
+}
+
+.btn-deposito {
+    all: unset; 
+    background: none; 
+    border: none; 
+    padding: 0; 
+    font: inherit; 
+    color: inherit; 
+    cursor: pointer;
 }
 
 .portifolio {
@@ -145,6 +190,10 @@ main {
     margin-right: var(--spacing-medium);
 }
 
+.menu-item__icon.investir {
+    font-size: 25px !important;
+}
+
 .menu-item__label {
     font-size: var(--font-size-medium);
 }
@@ -169,6 +218,58 @@ main {
     gap: 14px;
 }
 
+.modal-content {
+    background-color: #171717 !important;
+    color: #fff;
+    box-shadow: 1px 4px 4px 1px rgb(100, 96, 96) inset;
+    border-radius: 18px !important;
+}
+
+.modal-header h5 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.mb-3.iput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-header {
+    display: flex !important;
+    justify-content: center !important;
+    border: none !important;
+}
+
+.input-modal.depositar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding-top: 25px;
+}
+
+.input-modal.depositar label{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.input-modal.depositar input {
+    height: 30px;
+}
+
+.div-btn-depositar {
+    padding-bottom: 40px;
+}
+
+.div-btn-depositar button {
+    height: 45px !important;
+    width: 150px !important;
+    background-color: #034107 !important;
+    border: solid 1px #034107 !important;
+    border-radius: 15px;
+}
 .card-grap-header-title-container {
     display: flex;
     gap: 14px;
@@ -285,12 +386,47 @@ main {
 
 
 .imglistaEmmpresas {
-    width: 374px;
+    background-color: #212529;
+    width: 370px;
     height: 383px;
     margin: 15px;
     margin-left: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 4px;
 }
 
+.imglistaEmmpresas h3 {
+    font-weight: 600;
+    padding-bottom: 20px;
+    padding-left: 15px;
+}
+.imglistaEmmpresas tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imglistaEmmpresas th {
+    padding: 2px 5px 2px 5px;
+}
+
+
+.imglistaEmmpresas td {
+    padding: 8px 5px 8px 5px;
+    text-transform: uppercase;
+}
+.imglistaEmmpresas thead {
+    background-color: #171a1d;
+}
+
+.positivo {
+    color: green;
+}
+
+.negativo {
+    color: red;
+}
 .logo {
     margin-top: 25px;
     width: 245px;
@@ -373,7 +509,7 @@ main {
 }
 
 .bemv {
-    font-size: 16px;
+    font-size: 25px;
 }
 
 .lab-user-tex {
@@ -381,9 +517,12 @@ main {
 }
 
 .tudo {
-    font-size: 14px;
+    font-size: 22px;
 }
 
+.lab-user-tex {
+    font-size: 25px !important;
+}
 .seta {
     font-size: 25px;
 }
@@ -415,16 +554,11 @@ main {
         padding: 21px;
     }
     
-    .imguser {
-        margin: 7px;
-        height: 25px;
-        width: auto;
-    }
-    
     .portifolio {
         display: flex;
         margin-left: 20px;
         justify-content: space-between;
+        align-items: center;
     }
     
     .vertudo {

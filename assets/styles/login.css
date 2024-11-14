@@ -10,7 +10,7 @@ body {
     background-image: linear-gradient(to bottom left, #A8541F, #91410E, #702A00, #511F00, #311300, #150800, #080300, #030100, #000, #000, #000, #010000, #150800, #311300, #511F00, #702A00, #91410E, #A8541F);
     background-size: 100% 100vh;
     background-repeat: no-repeat;
-    color: white;
+    color: white !important;
 }
 
 main {
@@ -25,6 +25,17 @@ main {
 .logint {
     text-align: center;
 }
+
+/* .mt-3 {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.alert {
+    position: fixed !important;
+    width: 300px !important;
+    z-index: 1000 !important;
+} */
 
 .tx-1 {
     padding-bottom: 5%;

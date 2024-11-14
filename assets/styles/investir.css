@@ -40,6 +40,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    color: #fff !important;
 }
 
 .main-content {
@@ -78,6 +79,10 @@ body {
 .menu-item__icon {
     height: var(--font-size-xxlarge);
     margin-right: var(--spacing-medium);
+}
+
+.menu-item__icon.investir {
+    font-size: 25px !important;
 }
 
 .menu-item__label {
@@ -195,7 +200,7 @@ body {
 
 .input-modal input {
     background-color: #D9D9D9;
-    color: #fff !important;
+    color: #000 !important;
     height: 45px;
     width: 450px;
     border-radius: 12px;
@@ -228,13 +233,14 @@ body {
 
 .modal-style {
     height: 530px !important;
-    width: 800px !important;
+    width: 636px !important;
 }
 
 .modal-content {
-    
     background-color: #171717 !important;
     color: #fff;
+    box-shadow: 1px 4px 4px 1px rgb(100, 96, 96) inset;
+    border-radius: 18px !important;
 }
 
 .input-modal.investimento {
@@ -266,11 +272,12 @@ body {
 }
 
 .modal-body {
+    flex: 0.4 auto !important;
     padding:  0 !important;
 }
 
 .modal-dialog {
-    padding-left: 350px !important;
+    padding-left: 290px !important;
     max-width: 1000px !important;
 }
 
