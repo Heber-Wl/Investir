@@ -16,3 +16,4 @@
         echo json_encode(['error' => 'Usuário não autenticado']);
     }
 ?>
+llç,lç
