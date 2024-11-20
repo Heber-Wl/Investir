@@ -60,7 +60,7 @@ body {
 
 .sidebar__logo {
     margin-top: var(--spacing-large);
-    width: 190px;
+    max-width: 245px;
     height: auto;
 }
 
@@ -123,6 +123,7 @@ body {
     font-size: 55px;
     font-weight: 700;
 }
+
 .tabela-mercado table tbody td {
     color: #fff;
     text-align: center;

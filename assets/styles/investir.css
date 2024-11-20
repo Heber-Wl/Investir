@@ -61,7 +61,7 @@ body {
 
 .sidebar__logo {
     margin-top: var(--spacing-large);
-    width: 190px;
+    max-width: 245px;
     height: auto;
 }
 
@@ -94,11 +94,8 @@ body {
 }
 
 .content {
-    margin-left: 250px;
+    margin-left: 290px;
     width: calc(100% - 250px);
-    display: flex;
-    flex-direction: column !important;
-    padding: 120px 75px 30px 75px;
 }
 
 .content-home {
@@ -110,10 +107,10 @@ body {
 .img-empresa {
     height: 200px;
     border-radius: 50%;
-
 }
 
-.nome-empresa, .valor-acao {
+.nome-empresa,
+.valor-acao {
     padding: 30px 0 28px 0;
     font-weight: bold;
     font-size: 35px;
@@ -125,29 +122,29 @@ body {
 }
 
 .div-select {
-    min-height: 50px;
-    height: auto;
-    min-width: 100px;
-    width: auto;
     position: absolute;
-    left: 570px;
-    top: 21%;
+    left: 525px;
+    top: 85px;
 }
 
 .select-empresa {
-    width: 73%;
-    min-height: 45px;
-    background-color: transparent;
-    border: solid 0.2px #a6a6a6;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 700;
+    border-radius: var(--border-radius);
+    background-color: #00000000;
+    border-color: var(--color-detail);
+    color: white;
+    padding: var(--spacing-small);
+    transition: all 0.1s;
+}
+
+.select-empresa:hover {
+    border-color: white;
+    color: white;
 }
 
 .select-option {
     background-color: #000;
 }
+
 .info-empresa {
     display: flex;
     align-items: center;
@@ -177,7 +174,8 @@ body {
     display: flex;
     justify-content: center;
 }
-.grafico-empresa h2{
+
+.grafico-empresa h2 {
     color: #fff;
 }
 
@@ -261,13 +259,12 @@ body {
 }
 
 .modal-title {
-
     font-size: 40px;
 }
 
 .modal-body {
     flex: 0.4 auto !important;
-    padding:  0 !important;
+    padding: 0 !important;
 }
 
 .modal-dialog {
@@ -279,8 +276,6 @@ body {
     padding-top: 100px;
     width: 1500px;
 }
-
-
 
 @media (max-width: 1366px) {
     .sidebar__logo {
