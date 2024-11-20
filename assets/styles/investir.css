@@ -102,10 +102,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 .img-empresa {
-    height: 200px;
+    width: 200px;
     border-radius: 50%;
 }
 
@@ -123,8 +125,8 @@ body {
 
 .div-select {
     position: absolute;
-    left: 525px;
-    top: 85px;
+    left: 545px;
+    top: 105px;
 }
 
 .select-empresa {
