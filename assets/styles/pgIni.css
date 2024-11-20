@@ -37,19 +37,15 @@
 }
 
 body {
-    background-color: #000;
-    background-size: 100% 100vh;
+    background-image: linear-gradient(to bottom left, #A8541F, #91410E, #702A00, #511F00, #311300, #150800, #080300, #030100, #000, #000, #000, #010000, #150800, #311300, #511F00, #702A00, #91410E, #A8541F);
+    background-size: cover;
     background-repeat: no-repeat;
-    color: white !important;
+    background-attachment: fixed;
 }
 
 main {
     height: 100vh;
     display: flex;
-    background-image: linear-gradient(to bottom left, #A8541F, #91410E, #702A00, #511F00, #311300, #150800, #080300, #030100, #000, #000, #000, #010000, #150800, #311300, #511F00, #702A00, #91410E, #A8541F);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 .sidebar {
@@ -98,6 +94,7 @@ main {
 
 .div-2 {
     width: calc(100% - 250px);
+    padding-right: 16px;
     margin-left: 290px;
 }
 
@@ -198,6 +195,7 @@ main {
     margin: 0 20px 0 20px;
     padding: 1px;
     justify-content: space-between;
+    color: white;
 }
 
 .vertudo {
@@ -251,11 +249,9 @@ main {
 
 .card-graph {
     box-sizing: border-box;
-    width: 373px;
-    height: 237px;
+    width: 100%;
+    height: fit-content;
     background-color: #1a1f24;
-    margin-left: 18px;
-    margin-top: 16px;
     border-left: 5px solid #101518;
     padding: 20px;
     display: flex;
@@ -345,11 +341,9 @@ main {
 
 .card-big-graph {
     box-sizing: border-box;
-    width: 730px;
-    height: 383px;
+    width: 100%;
+    height: fit-content;
     background-color: #1a1f24;
-    margin-left: 18px;
-    margin-top: 16px;
     border-left: 5px solid #101518;
     padding: 20px;
     display: flex;
@@ -368,6 +362,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 14px;
+    height: fit-content;
 }
 
 .big-graph-title {
@@ -399,17 +394,20 @@ main {
     background-color: #1e2227;
 }
 
+.graphs__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
+
 .div-grafcos1 {
     display: flex;
-    margin-left: 60px;
-    margin-right: 60px;
+    gap: 16px;
 }
 
 .div-graficos2 {
     display: flex;
-    margin-left: 50px;
-    margin-right: 60px;
-    padding: 15px;
+    gap: 16px;
 }
 
 .imggrafc {
@@ -437,14 +435,13 @@ main {
 
 .imglistaEmmpresas {
     background-color: #212529;
-    width: 370px;
-    height: 383px;
-    margin: 15px;
-    margin-left: 45px;
+    min-width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 4px;
+    color: white;
+    padding: 16px;
 }
 
 .imglistaEmmpresas h3 {
@@ -567,10 +564,12 @@ main {
 
 .bemv {
     font-size: 25px;
+    color: white;
 }
 
 .lab-user-tex {
     font-size: 16px;
+    color: white;
 }
 
 .tudo {

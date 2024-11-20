@@ -206,8 +206,8 @@ body {
 }
 
 .graph--large {
-    width: 88%;
-    height: 400px;
+    width: 108%;
+    height: fit-content;
 }
 
 .graphs {
@@ -441,7 +441,6 @@ body {
 
 .tabela-mercado table thead th {
     background-color: #212529;
-    border-radius: 5px;
     color: #fff;
     text-align: center;
     padding: 10px 7px 10px 7px;

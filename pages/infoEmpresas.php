@@ -94,7 +94,7 @@
                                 <button class="graph__time-option graph__time-option--active">Mês</button>
                             </div>
                         </div>
-                        <canvas class="graph__content" id="graph1"></canvas>
+                        <canvas class="graph__content" height="280" id="graph1"></canvas>
                     </div>
                 </div>
                 <div class="actions">

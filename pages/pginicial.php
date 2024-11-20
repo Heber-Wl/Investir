@@ -115,6 +115,7 @@
                     </div>
                 </div>
             </div>
+            <div class="graphs__content">
             <div class="div-grafcos1">
                 <div class="card-graph">
                     <div class="card-grap-header-title-container">
@@ -226,6 +227,7 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
             </div>
     </main>
 
