@@ -176,6 +176,7 @@ body {
 .graph__time-options {
     display: flex;
     gap: var(--spacing-small);
+    height: fit-content;
 }
 
 .graph__time-option {
