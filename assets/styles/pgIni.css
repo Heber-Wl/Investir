@@ -36,27 +36,66 @@
     --font-size-xxlarge: 25px;
 }
 
-
 body {
-    background-color: #000;
-    background-size: 100% 100vh;
+    background-image: linear-gradient(to bottom left, #A8541F, #91410E, #702A00, #511F00, #311300, #150800, #080300, #030100, #000, #000, #000, #010000, #150800, #311300, #511F00, #702A00, #91410E, #A8541F);
+    background-size: cover;
     background-repeat: no-repeat;
-    color: white !important;
+    background-attachment: fixed;
 }
+
 main {
     height: 100vh;
-    width: 100%;
     display: flex;
 }
 
-.div-1 {
-    background-image: linear-gradient(to bottom left, #150800, #080300, #030100, #000, #000, #000, #010000, #150800, #311300, #511F00, #702A00, #91410E, #A8541F);
+.sidebar {
+    background: var(--color-aside-bg);
+    position: fixed;
+    height: 100vh;
+}
 
+.sidebar__menu {
+    margin-left: var(--spacing-large);
+}
+
+.sidebar__logo {
+    margin-top: var(--spacing-large);
+    max-width: 245px;
+    height: auto;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-medium);
+    margin-top: 19px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: background-color var(--transition-duration);
+}
+
+.menu-item__icon {
+    height: var(--font-size-xxlarge);
+    margin-right: var(--spacing-medium);
+}
+
+.menu-item__icon.investir {
+    font-size: 25px !important;
+}
+
+.menu-item__label {
+    font-size: var(--font-size-medium);
+}
+
+.menu-item:hover {
+    background-color: var(--color-detail);
 }
 
 .div-2 {
-    background-image: linear-gradient(to bottom left, #A8541F, #91410E, #702A00, #511F00, #311300, #150800, #080300, #030100, #000, #000, #000, #010000, #150800, #311300, #511F00, #702A00, #91410E, #A8541F);
-   width: 100%;
+    width: calc(100% - 250px);
+    padding-right: 16px;
+    margin-left: 290px;
 }
 
 .div-painel {
@@ -65,15 +104,18 @@ main {
 }
 
 .div-mercado {
-    display: flex; /* cor do hover #FF7300*/
+    display: flex;
+    /* cor do hover #FF7300*/
     padding: 15px;
     margin-top: 19px;
 }
+
 .div-tranzacao {
     display: flex;
     padding: 15px;
     margin-top: 19px;
 }
+
 .div-opcoes {
     display: flex;
     padding: 15px;
@@ -129,22 +171,22 @@ main {
 }
 
 .btn-user {
-    all: unset; 
-    background: none; 
-    border: none; 
-    padding: 0; 
-    font: inherit; 
-    color: inherit; 
-    cursor: pointer; 
+    all: unset;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
 }
 
 .btn-deposito {
-    all: unset; 
-    background: none; 
-    border: none; 
-    padding: 0; 
-    font: inherit; 
-    color: inherit; 
+    all: unset;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
     cursor: pointer;
 }
 
@@ -153,7 +195,9 @@ main {
     margin: 0 20px 0 20px;
     padding: 1px;
     justify-content: space-between;
+    color: white;
 }
+
 .vertudo {
     display: flex;
     align-items: center;
@@ -162,6 +206,7 @@ main {
     transition: transform 0.5s ease, color 0.3s ease;
     margin: 20px;
 }
+
 .vertudo h5 {
     padding-right: 10px;
 }
@@ -204,15 +249,11 @@ main {
 
 .card-graph {
     box-sizing: border-box;
-    width: 373px;
-    height: 237px;
+    width: 100%;
+    height: fit-content;
     background-color: #1a1f24;
-    margin-left: 18px;
-    margin-top: 16px;
     border-left: 5px solid #101518;
-
     padding: 20px;
-
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -250,7 +291,7 @@ main {
     padding-top: 25px;
 }
 
-.input-modal.depositar label{
+.input-modal.depositar label {
     font-size: 20px;
     font-weight: 500;
 }
@@ -270,6 +311,7 @@ main {
     border: solid 1px #034107 !important;
     border-radius: 15px;
 }
+
 .card-grap-header-title-container {
     display: flex;
     gap: 14px;
@@ -286,6 +328,7 @@ main {
 .bold {
     font-weight: bold;
 }
+
 .card-graph-subtitle {
     font-size: 28px;
     color: white;
@@ -298,15 +341,11 @@ main {
 
 .card-big-graph {
     box-sizing: border-box;
-    width: 730px;
-    height: 383px;
+    width: 100%;
+    height: fit-content;
     background-color: #1a1f24;
-    margin-left: 18px;
-    margin-top: 16px;
     border-left: 5px solid #101518;
-
     padding: 20px;
-
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -318,16 +357,19 @@ main {
     justify-content: space-between;
     margin-bottom: 20px;
 }
+
 .big-graph-title-container {
     display: flex;
     flex-direction: column;
     gap: 14px;
+    height: fit-content;
 }
 
 .big-graph-title {
     font-size: 18px;
     color: #a6a6a6;
 }
+
 .big-graph-subtitle {
     color: white;
     font-size: 24px;
@@ -345,26 +387,30 @@ main {
     color: #727373;
     padding: 6px 12px;
 }
+
 .type-graph.active {
     color: white;
     font-weight: bold;
     background-color: #1e2227;
 }
 
+.graphs__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
 
 .div-grafcos1 {
     display: flex;
-    margin-left: 60px;
-    margin-right: 60px;
+    gap: 16px;
 }
 
 .div-graficos2 {
-    display: flex; 
-    margin-left: 50px;
-    margin-right: 60px;
-    padding: 15px;
+    display: flex;
+    gap: 16px;
 }
-.imggrafc{
+
+.imggrafc {
     width: 470px;
     height: 237px;
 }
@@ -372,29 +418,30 @@ main {
 #img1 {
     margin: 15px;
 }
+
 #img2 {
     margin: 15px;
 }
+
 #img3 {
     margin: 15px;
 }
+
 .imggrafcgeral {
     width: 780px;
     height: 383px;
     margin: 15px;
 }
 
-
 .imglistaEmmpresas {
     background-color: #212529;
-    width: 370px;
-    height: 383px;
-    margin: 15px;
-    margin-left: 45px;
+    min-width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 4px;
+    color: white;
+    padding: 16px;
 }
 
 .imglistaEmmpresas h3 {
@@ -402,6 +449,7 @@ main {
     padding-bottom: 20px;
     padding-left: 15px;
 }
+
 .imglistaEmmpresas tr {
     display: flex;
     justify-content: space-between;
@@ -411,11 +459,11 @@ main {
     padding: 2px 5px 2px 5px;
 }
 
-
 .imglistaEmmpresas td {
     padding: 8px 5px 8px 5px;
     text-transform: uppercase;
 }
+
 .imglistaEmmpresas thead {
     background-color: #171a1d;
 }
@@ -427,6 +475,7 @@ main {
 .negativo {
     color: red;
 }
+
 .logo {
     margin-top: 25px;
     width: 245px;
@@ -437,15 +486,15 @@ main {
     margin-top: 50px;
 }
 
-.barra1{
-   margin-left: 25px;
+.barra1 {
+    margin-left: 25px;
 }
 
 .div-painel {
     height: 53px;
     width: 235px;
     display: flex;
-    align-items:center;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -472,21 +521,25 @@ main {
     margin-left: -2px;
     cursor: pointer;
 }
+
 .painel {
     height: 39px;
     width: auto;
     margin-right: 22px;
 }
+
 .mercado {
     height: 28px;
     width: auto;
     margin-right: 22px;
 }
+
 .tranzacao {
     height: 45px;
     width: auto;
     margin-right: 22px;
 }
+
 .opcoes {
     height: 30px;
     width: auto;
@@ -504,16 +557,19 @@ main {
 .div-tranzacao:hover {
     background-color: #FF7300;
 }
+
 .div-opcoes:hover {
     background-color: #FF7300;
 }
 
 .bemv {
     font-size: 25px;
+    color: white;
 }
 
 .lab-user-tex {
     font-size: 16px;
+    color: white;
 }
 
 .tudo {
@@ -523,15 +579,14 @@ main {
 .lab-user-tex {
     font-size: 25px !important;
 }
+
 .seta {
     font-size: 25px;
 }
 
-@media screen and (max-width: 1400px) and (max-height: 1050px) {
+@media screen and (max-width: 1400px) and (max-height: 1050px) {}
 
-}
-
-@media screen and (max-width: 1366px) and (max-height: 768px) {    
+@media screen and (max-width: 1366px) and (max-height: 768px) {
     .div-mercado {
         padding: 11px;
         margin-top: 15px;
@@ -547,20 +602,17 @@ main {
         align-items: center;
         margin-top: 15px;
     }
-    
     .bemvindo {
         display: flex;
         margin-top: 5px;
         padding: 21px;
     }
-    
     .portifolio {
         display: flex;
         margin-left: 20px;
         justify-content: space-between;
         align-items: center;
     }
-    
     .vertudo {
         display: flex;
         align-items: center;
@@ -568,33 +620,28 @@ main {
         transition: transform 0.5s ease, color 0.3s ease;
         margin: 10px;
     }
-    
     .vertudo:hover {
         transform: scale(1.1);
     }
-    
     .seta {
         color: #FF7300;
     }
-    
     .div-grafcos1 {
         display: flex;
         margin-left: 40px;
         margin-right: 40px;
     }
-    
     .div-graficos2 {
-        display: flex; 
+        display: flex;
         margin-left: 10px;
         margin-right: 10px;
         padding-left: 21px;
     }
-    .imggrafc{
+    .imggrafc {
         width: 330px;
         height: 156px;
         justify-content: space-between, 5px;
     }
-    
     #img1 {
         margin: 9px;
     }
@@ -609,40 +656,32 @@ main {
         height: 270px;
         margin: px;
     }
-    
-    
     .imglistaEmmpresas {
         width: 250px;
         height: 270px;
         margin: px;
         margin-left: 45px;
     }
-    
     .logo {
         margin-top: 25px;
         width: 195px;
         height: auto;
     }
-    
     .barra-esquerda {
         margin-top: 35px;
     }
-    
-    .barra1{
-       margin-left: 15px;
+    .barra1 {
+        margin-left: 15px;
     }
-    
     .div-painel {
         height: 45px;
         width: 225px;
     }
-    
     .div-mercado {
         height: 19px;
         width: 207px;
         margin-left: -12px;
     }
-    
     .div-tranzacao {
         height: 19px;
         width: 207px;
@@ -673,41 +712,33 @@ main {
         width: auto;
         margin-right: 22px;
     }
-    
     .div-painel:hover {
         background-color: #FF7300;
     }
-    
     .div-mercado:hover {
         background-color: #FF7300;
     }
-    
     .div-tranzacao:hover {
         background-color: #FF7300;
     }
     .div-opcoes:hover {
         background-color: #FF7300;
     }
-    
     .bemv {
         font-size: 11.5px;
     }
-    
     .lab-user-tex {
         font-size: 11px;
     }
-    
     .port {
         font-size: 11px;
     }
     .tudo {
         font-size: 11px;
     }
-
     .lab-painel {
         font-size: 14px;
     }
-
     .lab-mercado {
         font-size: 14px;
     }
@@ -717,17 +748,10 @@ main {
     .lab-opcoes {
         font-size: 14px;
     }
-    
 }
 
-@media screen and (max-width: 1280px) and (max-height: 800px) {
+@media screen and (max-width: 1280px) and (max-height: 800px) {}
 
-}
+@media screen and (max-width: 1280px) and (max-height: 600px) {}
 
-@media screen and (max-width: 1280px) and (max-height: 600px) {
-
-}
-
-@media screen and (max-width: 800px) and (max-height: 600px) {
-
-}
+@media screen and (max-width: 800px) and (max-height: 600px) {}
