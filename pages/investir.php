@@ -135,7 +135,7 @@
                         </div>
                     </div>
                     <div class="grafico-empresa">
-                        <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                        
                     </div>
                 </div>
                 <div class="content conteudo" id="empresa-2" style="display: none;">
@@ -177,7 +177,7 @@
                         </div>
                     </div>
                     <div class="grafico-empresa">
-                        <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                        
                     </div>
                 </div>
                 <div class="content conteudo" id="empresa-3" style="display: none;">
@@ -219,7 +219,7 @@
                         </div>
                     </div>
                     <div class="grafico-empresa">
-                        <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                        
                     </div>
                 </div>
                 <div class="content conteudo" id="empresa-4" style="display: none;">
@@ -261,7 +261,7 @@
                         </div>
                     </div>
                     <div class="grafico-empresa">
-                        <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                        
                     </div>
                 </div>
                 <div class="content conteudo" id="empresa-5" style="display: none;">
@@ -303,7 +303,7 @@
                         </div>
                     </div>
                     <div class="grafico-empresa">
-                        <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                        
                     </div>
                 </div>
                 <div class="content conteudo" id="empresa-6" style="display: none;">
@@ -345,7 +345,7 @@
                         </div>
                     </div>
                     <div class="grafico-empresa">
-                        <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                        
                     </div>
                 </div>
                 <div class="content conteudo" id="empresa-7" style="display: none;">
@@ -387,7 +387,7 @@
                         </div>
                     </div>
                     <div class="grafico-empresa">
-                        <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                        
                     </div>
                 </div>
                 <div class="content conteudo" id="empresa-8" style="display: none;">
@@ -429,7 +429,7 @@
                         </div>
                     </div>
                     <div class="grafico-empresa">
-                        <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                        
                     </div>
                 </div>
                 <div class="content conteudo" id="empresa-9" style="display: none;">
@@ -471,7 +471,7 @@
                         </div>
                     </div>
                     <div class="grafico-empresa">
-                        <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                        
                     </div>
                 </div>
                 <div class="content conteudo" id="empresa-10" style="display: none;">
@@ -513,7 +513,7 @@
                         </div>
                     </div>
                     <div class="grafico-empresa">
-                        <img src="../assets/images/graficoPrincipal2.png" alt="" class="img-grafico">
+                        
                     </div>
                 </div>
             </form>
@@ -536,6 +536,124 @@
             if (selectedSection) {
                 selectedSection.style.display = 'block';
             }
+        }
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+<script>
+    const valoresEmpresas = [
+        [
+            1.69, -2.18, 12.13, 27.06,
+            30.83, 37.01, 36.20, 47.79,
+            36.47, 51.09, 61.45, 67.34
+        ],
+        [
+            5.13, 4.94, 18.79, 19.86,
+            11.56, 7.12, 5.89, 23.53,
+            30.19, 25.04, 28.75, 30.12
+        ],
+        [
+            -11.86, -11.56, -4.45, -10.12,
+            -6.45, -4.12, 3.56, 11.76,
+            -1.45, -2.89, -4.8, 2.89
+        ],
+        [
+            -0.36, 13.20, 12.89, 1.78,
+            -4.78, -5.99, 3.52, 6.1,
+            1.45, -2.78, -2.89, -4.55
+        ],
+        [
+            -6.60, -8.24, -10.24, -20.46,
+            -10.14, -5.56, -9.47, -7.92,
+            1.56, 2.85, -2.30, 7.45
+        ],
+        [
+            13.46, 11.01, 10.92, 11.12,
+            13.45, 29.40, 31.93, 33.45,
+            37.12, 36.47, 32.23, 30.41
+        ],
+        [
+            -8.54, -8, -3.13, -13.45,
+            -12.14, -8.56, -1.56, -13.79,
+            1.5, 5.96, 8.47, 11.78
+        ],
+        [
+            7, 18.83, 20.13, 9.78,
+            4.98, 2.06, 18.25, 25.25,
+            14.78, 4.69, 8.27, 5.29
+        ],
+        [
+            -7.49, 8.09, 16.72, 12.75,
+            9.91, 6.45, 19.67, 20.4,
+            17.02, 19.77, 37.53, 36.45
+        ],
+        [
+            1.14, 12.53, 15, 9.74,
+            8.93, 4.96, 23.43, 29.79,
+            26.22, 29.22, 31.16, 22.21
+        ],
+    ];
+
+    document.getElementById('selecionar-empresa').addEventListener('change', function() {
+        const id_empresa_selecionada = this.value;
+
+        const cotacoesEmpresa = valoresEmpresas[id_empresa_selecionada - 1];
+
+        const containerGrafico = document.querySelector('.conteudo:not([style*="display: none"]) .grafico-empresa');
+
+        if (containerGrafico) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.height = 100;
+
+            containerGrafico.innerHTML = '';
+            containerGrafico.appendChild(canvas);
+
+            const labels = [];
+            const data = []
+            
+            cotacoesEmpresa.forEach((cotacaoEmpresa, index) => {
+                labels.push(`Mês ${index + 1}`);
+                data.push(Number(cotacaoEmpresa));
+            });
+
+            const optGraph = {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: 'Cotação R$',
+                        data,
+                        fill: true,
+                        borderColor: '#FD7100',
+                        tension: 0.1,
+                        backgroundColor: '#403024',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false, position: 'top' },
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                display: false, // oculta os meses
+                                color: 'white',
+                                font: { size: 14 }
+                            }
+                        },
+                        y: {
+                            ticks: { display: false },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            }
+
+            new Chart(ctx, optGraph);
         }
     });
 </script>

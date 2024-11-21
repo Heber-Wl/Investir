@@ -249,6 +249,35 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script src="../assets/scripts/chart-config.js"></script>
     <script>
+         const lucrosEmpresas = <?php
+            include_once('config.php');
+        
+            $id = $_SESSION['id'];
+            $sql = "SELECT le.* FROM lucro_empresa le INNER JOIN dados_investimento di ON di.id = le.id_investimento WHERE di.id_user = $id";
+            $result = $conexao->query($sql);
+        
+            $rows = [];
+
+            while($row = $result->fetch_assoc()) {
+                $rows[] = $row;
+            }
+        
+            $lucrosEmpresas = json_encode($rows);
+        
+            echo $lucrosEmpresas;
+        ?>;
+        
+
+        const lucrosAgrupadosPorMes = [];
+        
+        for (let i = 1; i <= 12; i++) {
+            lucrosAgrupadosPorMes[i - 1] = 0;
+
+            lucrosEmpresas.forEach((lucroEmpresa) => {
+                lucrosAgrupadosPorMes[i - 1] += Number(lucroEmpresa[`mes_${i}`]);
+            });
+        }
+
         document.querySelector('.header__aside-handler').addEventListener('click', () => {
             document.querySelector('.toggle-aside').classList.toggle('toggle-aside--active');
         });
@@ -299,8 +328,8 @@
             data: {
                 labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
                 datasets: [{
-                    label: 'Investimento',
-                    data: [65, 59, 80, 81, 56, 55, 60, 90, 60, 100, 80, 100],
+                    label: 'Lucro',
+                    data: lucrosAgrupadosPorMes,
                     fill: true,
                     borderColor: '#FD7100',
                     tension: 0.1,
