@@ -18,6 +18,7 @@
     }
 
     $logado = $_SESSION['email'];
+    $deposito = $_SESSION['deposito'];
 ?>
 
 <!DOCTYPE html>
