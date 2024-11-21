@@ -302,9 +302,9 @@
             });
         }
 
-        document.querySelector('.header__aside-handler').addEventListener('click', () => {
-            document.querySelector('.toggle-aside').classList.toggle('toggle-aside--active');
-        });
+        // document.querySelector('.header__aside-handler').addEventListener('click', () => {
+        //     document.querySelector('.toggle-aside').classList.toggle('toggle-aside--active');
+        // });
         const ctx1 = document.getElementById('graph1').getContext('2d');
         const opt = {
             type: 'line',
