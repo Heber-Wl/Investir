@@ -339,6 +339,11 @@ main {
     color: #5bad50;
 }
 
+.card-grap-porcentagem-desceu {
+    font-size: 18px;
+    color: #E10101;
+}
+
 .card-big-graph {
     box-sizing: border-box;
     width: 100%;
