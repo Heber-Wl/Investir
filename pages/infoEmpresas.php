@@ -86,13 +86,13 @@
                         <div class="graph__header">
                             <div class="graph__title-container">
                                 <p class="graph__title">Investimentos totais</p>
-                                <p class="graph__subtitle">R$ 10,216.53</p>
+                                <p class="graph__subtitle seta">R$ <?php echo number_format(isset($deposito) ? $deposito : 0, 1, ',', '.'); ?></p>
                             </div>
-                            <div class="graph__time-options">
+                            <!-- <div class="graph__time-options">
                                 <button class="graph__time-option">Dia</button>
                                 <button class="graph__time-option">Semana</button>
                                 <button class="graph__time-option graph__time-option--active">Mês</button>
-                            </div>
+                            </div> -->
                         </div>
                         <canvas class="graph__content" height="280" id="graph1"></canvas>
                     </div>
@@ -246,6 +246,29 @@
             </div>
         </aside>
     </main>
+    <script>
+        function atualizarDeposito() {
+            fetch('consultaDeposito.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.deposito) {
+                        // Atualiza o valor do depósito na página
+                        [...document.querySelectorAll('.seta')].forEach(element => {
+                            element.textContent = 'R$ ' + parseFloat(data.deposito).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+                        })
+                    } else {
+                        console.error('Erro:', data.error);
+                    }
+                })
+                .catch(error => console.error('Erro na consulta do depósito:', error));
+        }
+
+        // Configura o intervalo para atualizar a cada 10 segundos
+        setInterval(atualizarDeposito, 10000);
+
+        // Executa a atualização ao carregar a página
+        window.onload = atualizarDeposito;
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script src="../assets/scripts/chart-config.js"></script>
     <script>

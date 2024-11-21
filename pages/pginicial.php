@@ -119,26 +119,26 @@
             <div class="div-grafcos1">
                 <div class="card-graph">
                     <div class="card-grap-header-title-container">
-                        <p class="card-graph-title">Netflix</p>
-                        <p class="card-graph-subtitle">NFLX</p>
+                        <p class="card-graph-title">Petrobrás</p>
+                        <!-- <p class="card-graph-subtitle">NFLX</p> -->
                     </div>
 
                     <div class="card-grap-header-title-container">
-                        <p class="card-graph-subtitle bold">R$ 416.03</p>
-                        <p class="card-grap-porcentagem-subiu">+2.37%</p>
+                        <p class="card-graph-subtitle bold">R$ 36,00</p>
+                        <p class="card-grap-porcentagem-subiu">+1,69%</p>
                     </div>
                     <canvas height="120" id="graph1"></canvas>
                 </div>
 
                 <div class="card-graph">
                     <div class="card-grap-header-title-container">
-                        <p class="card-graph-title">Netflix</p>
-                        <p class="card-graph-subtitle">NFLX</p>
+                        <p class="card-graph-title">Itaú</p>
+                        <!-- <p class="card-graph-subtitle">NFLX</p> -->
                     </div>
 
                     <div class="card-grap-header-title-container">
-                        <p class="card-graph-subtitle bold">R$ 416.03</p>
-                        <p class="card-grap-porcentagem-subiu">+2.37%</p>
+                        <p class="card-graph-subtitle bold">R$ 33,30</p>
+                        <p class="card-grap-porcentagem-subiu">+5,13%</p>
                     </div>
                     <canvas height="120" id="graph2"></canvas>
                 </div>
@@ -146,13 +146,13 @@
 
                 <div class="card-graph">
                     <div class="card-grap-header-title-container">
-                        <p class="card-graph-title">Netflix</p>
-                        <p class="card-graph-subtitle">NFLX</p>
+                        <p class="card-graph-title">Vale</p>
+                        <!-- <p class="card-graph-subtitle">NFLX</p> -->
                     </div>
 
                     <div class="card-grap-header-title-container">
-                        <p class="card-graph-subtitle bold">R$ 416.03</p>
-                        <p class="card-grap-porcentagem-subiu">+2.37%</p>
+                        <p class="card-graph-subtitle bold">R$ 61,17</p>
+                        <p class="card-grap-porcentagem-desceu">-11,86%</p>
                     </div>
                     <canvas height="120" id="graph3"></canvas>
                 </div>
@@ -163,14 +163,14 @@
                         <div class="big-graph-header">
                             <div class="big-graph-title-container">
                                 <p class="big-graph-title">Investimentos totais</p>
-                                <p class="big-graph-subtitle bold">R$ 10,216.53</p>
+                                <p class="big-graph-subtitle bold seta">R$ <?php echo number_format(isset($deposito) ? $deposito : 0, 1, ',', '.'); ?></p>
                             </div>
 
-                            <div class="container-type-graph">
+                            <!-- <div class="container-type-graph">
                                 <div class="type-graph">Dia</div>
                                 <div class="type-graph">Semana</div>
                                 <div class="type-graph active">Mês</div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <canvas height="240" id="graph4"></canvas>
@@ -240,7 +240,9 @@
                 .then(data => {
                     if (data.deposito) {
                         // Atualiza o valor do depósito na página
-                        document.querySelector('.seta').textContent = 'R$ ' + parseFloat(data.deposito).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+                        [...document.querySelectorAll('.seta')].forEach(element => {
+                            element.textContent = 'R$ ' + parseFloat(data.deposito).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+                        })
                     } else {
                         console.error('Erro:', data.error);
                     }
@@ -261,13 +263,66 @@
         const ctx3 = document.getElementById('graph3').getContext('2d');
         const ctx4 = document.getElementById('graph4').getContext('2d');
 
+        const valoresEmpresas = [
+            [
+                1.69, -2.18, 12.13, 27.06,
+                30.83, 37.01, 36.20, 47.79,
+                36.47, 51.09, 61.45, 67.34
+            ],
+            [
+                5.13, 4.94, 18.79, 19.86,
+                11.56, 7.12, 5.89, 23.53,
+                30.19, 25.04, 28.75, 30.12
+            ],
+            [
+                -11.86, -11.56, -4.45, -10.12,
+                -6.45, -4.12, 3.56, 11.76,
+                -1.45, -2.89, -4.8, 2.89
+            ],
+            [
+                -0.36, 13.20, 12.89, 1.78,
+                -4.78, -5.99, 3.52, 6.1,
+                1.45, -2.78, -2.89, -4.55
+            ],
+            [
+                -6.60, -8.24, -10.24, -20.46,
+                -10.14, -5.56, -9.47, -7.92,
+                1.56, 2.85, -2.30, 7.45
+            ],
+            [
+                13.46, 11.01, 10.92, 11.12,
+                13.45, 29.40, 31.93, 33.45,
+                37.12, 36.47, 32.23, 30.41
+            ],
+            [
+                -8.54, -8, -3.13, -13.45,
+                -12.14, -8.56, -1.56, -13.79,
+                1.5, 5.96, 8.47, 11.78
+            ],
+            [
+                7, 18.83, 20.13, 9.78,
+                4.98, 2.06, 18.25, 25.25,
+                14.78, 4.69, 8.27, 5.29
+            ],
+            [
+                -7.49, 8.09, 16.72, 12.75,
+                9.91, 6.45, 19.67, 20.4,
+                17.02, 19.77, 37.53, 36.45
+            ],
+            [
+                1.14, 12.53, 15, 9.74,
+                8.93, 4.96, 23.43, 29.79,
+                26.22, 29.22, 31.16, 22.21
+            ],
+        ];
+
         const opt = {
             type: 'line',
             data: {
                 labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
                 datasets: [{
-                    label: 'Investimento',
-                    data: [65, 59, 80, 81, 56, 55],
+                    label: 'Status (%)',
+                    data: [],
                     fill: true,
                     borderColor: '#FD7100',
                     tension: 0.1,
@@ -292,13 +347,51 @@
             }
         }
 
+        const optEmpresa1 = JSON.parse(JSON.stringify(opt));
+        optEmpresa1.data.datasets[0].data = valoresEmpresas[0];
+
+        const optEmpresa2 = JSON.parse(JSON.stringify(opt));
+        optEmpresa2.data.datasets[0].data = valoresEmpresas[1];
+
+        const optEmpresa3 = JSON.parse(JSON.stringify(opt));
+        optEmpresa3.data.datasets[0].data = valoresEmpresas[2];
+
+        const lucrosEmpresas = <?php
+            include_once('config.php');
+        
+            $id = $_SESSION['id'];
+            $sql = "SELECT le.* FROM lucro_empresa le INNER JOIN dados_investimento di ON di.id = le.id_investimento WHERE di.id_user = $id";
+            $result = $conexao->query($sql);
+        
+            $rows = [];
+
+            while($row = $result->fetch_assoc()) {
+                $rows[] = $row;
+            }
+        
+            $lucrosEmpresas = json_encode($rows);
+        
+            echo $lucrosEmpresas;
+        ?>;
+        
+
+        const lucrosAgrupadosPorMes = [];
+        
+        for (let i = 1; i <= 12; i++) {
+            lucrosAgrupadosPorMes[i - 1] = 0;
+
+            lucrosEmpresas.forEach((lucroEmpresa) => {
+                lucrosAgrupadosPorMes[i - 1] += Number(lucroEmpresa[`mes_${i}`]);
+            });
+        }
+
         const optBigGraph = {
             type: 'line',
             data: {
                 labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
                 datasets: [{
-                    label: 'Investimento',
-                    data: [65, 59, 80, 81, 56, 55, 60, 90, 60, 100, 80, 100],
+                    label: 'Lucro',
+                    data: lucrosAgrupadosPorMes,
                     fill: true,
                     borderColor: '#FD7100',
                     tension: 0.1,
@@ -325,9 +418,9 @@
             }
         }
 
-        new Chart(ctx1, opt);
-        new Chart(ctx2, opt);
-        new Chart(ctx3, opt);
+        new Chart(ctx1, optEmpresa1);
+        new Chart(ctx2, optEmpresa2);
+        new Chart(ctx3, optEmpresa3);
         new Chart(ctx4, optBigGraph);
     </script>
     <script>
