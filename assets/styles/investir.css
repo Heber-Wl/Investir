@@ -96,6 +96,8 @@ body {
 .content {
     margin-left: 290px;
     width: calc(100% - 250px);
+    display: flex;
+    flex-direction: column;
 }
 
 .content-home {
@@ -176,7 +178,11 @@ body {
     display: flex;
     justify-content: center;
     background-color: #1a1f24;
+    width: 82vw;
     margin-top: 60px;
+    border-radius: 8px;
+    padding: 16px;
+    justify-self: center;
 }
 
 .grafico-empresa h2 {

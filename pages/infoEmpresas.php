@@ -74,9 +74,9 @@
             </header> -->
             <section class="content__information">
                 <div class="header">
-                    <button class="header__aside-handler">
+                    <!-- <button class="header__aside-handler">
                         <img src="../assets/imageS/icons/align-justify.svg" alt="Menu Icon" class="content__user-icon">
-                    </button>
+                    </button> -->
                     <select class="header__filter" name="tradeSelector">
                         <option value="mock">Gráficos de Trades</option>
                     </select>
